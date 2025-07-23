@@ -1,6 +1,7 @@
 ﻿////using CAD_Inv;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 
@@ -12,9 +13,9 @@ namespace InventarioAsset
         public const string ModoListaALL = "Todos";
         public const string ModoListaActivo = "Activos";
         public const string ModoHistorico = "Historico";
-        public const string AgregarPedido = "addLugar";
-        public const string EditarPedido = "modLugar";
-        public const string BorrarPedido = "delLugar";
+        public const string AgregarPuesto = "addLugar";
+        public const string EditarPuesto = "modLugar";
+        public const string BorrarPuesto = "delLugar";
     }
     public class Puesto
     {
@@ -97,7 +98,7 @@ namespace InventarioAsset
         {
             Puesto px = new Puesto();
             List<Puesto> lp = px.ListarPuestosActivos();
-            px= lp.Find(p => p.NombrePuesto.ToUpper() == nombrePuesto.ToUpper() && p.Activo=="1");
+            px= lp.Find(p => p.NombrePuesto.ToUpper() == nombrePuesto.ToUpper() );
             if (px == null)
                 return px;
             else
@@ -112,7 +113,8 @@ namespace InventarioAsset
             jp = jp.JSONget("?q=ListaLugares&d=now");
 
             lp = jp.coleccion.ConvertAll(new Converter<Jpuesto, Puesto>(Conversor));
-            lp=lp.FindAll(p => p.Activo == "1");
+            //lp=lp.FindAll(p => p.Activo == "1");
+            lp=lp.OrderBy(p=>p.NombrePuesto).ToList();
             return lp;
         }
 
@@ -120,50 +122,34 @@ namespace InventarioAsset
         {
             List<Puesto> lp = new List<Puesto>();
             RetCode rc = new RetCode();
-            
             Jpuesto np = new Jpuesto();
-            //np = paux;
-            np.q = CTESpuesto.AgregarPedido;
+            np.q = CTESpuesto.AgregarPuesto;
             np.ID = paux.id;
-
             np.idlugar = paux.NombrePuesto;
             np.responsable = paux.Responsable;// "";
             np.descripcion = paux.Descripcion;// "";// "el puesto de sarrsami";
             np.fechacreacion= DateTime.Now.ToString();
             np.comentario = paux.Comentario;// "El polaquito";
             np.admin = paux.Admin;
-            
-            //np.solicitante = paux.solicitante;//
             np.activo =paux.Activo;// "";
-            //                                     //np.info.admin = "764";
-            //                                     // np.idAdminUser = "764";
-            //np.idadminuser = "764";
-            //rc = np.info.JSONPost(np);
-           rc= np.JSONPost(np);
+ 
+            rc= np.JSONPost(np);
             return rc;
-            //return rc;
         }
 
         public RetCode EditarPuestos(Puesto paux)
         {
             List<Puesto> lp = new List<Puesto>();
             RetCode rc = new RetCode();
-
             Jpuesto np = new Jpuesto();
-            //np = paux;
-            np.q = CTESpuesto.EditarPedido;
+            np.q = CTESpuesto.EditarPuesto;
             np.ID = paux.id;
-
             np.idlugar = paux.NombrePuesto;
-            np.comentario = paux.Comentario;// "El polaquito";
-            np.descripcion = paux.Descripcion;// "";// "el puesto de sarrsami";
             np.responsable = paux.Responsable;// "";
+            np.descripcion = paux.Descripcion;// "";// "el puesto de sarrsami";
+            np.comentario = paux.Comentario;// "El polaquito";
             np.admin = paux.Admin;//
             np.activo = paux.Activo;// "";
-            //                                     //np.info.admin = "764";
-            //                                     // np.idAdminUser = "764";
-            //np.idadminuser = "764";
-            //rc = np.info.JSONPost(np);
             rc=np.JSONPost(np);
             return rc;
         }
@@ -175,7 +161,7 @@ namespace InventarioAsset
 
             Jpuesto np = new Jpuesto();
             //np = paux;
-            np.q = CTESpuesto.BorrarPedido;
+            np.q = CTESpuesto.BorrarPuesto;
             np.ID = paux.id;
 
             np.idlugar = paux.NombrePuesto;

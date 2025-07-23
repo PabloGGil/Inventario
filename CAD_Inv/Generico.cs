@@ -70,13 +70,28 @@ namespace InventarioAsset
         public string OBSERVACION { get; set; }
     }
 
-    public  class Refresco
+    public static class TimeHelper
     {
-        public void RefrescarLocal()
+        public static bool HasSecondsElapsed(DateTime startTime, double seconds)
         {
-           
-            Global.TodosLosAsset = new AllAssets(Global.urlBase + "/ajaxEquipos.php?q=a");
-            JSONAllAsset jmaa = Global.TodosLosAsset.JSONget();
+            return (DateTime.Now - startTime).TotalSeconds > seconds;
+        }
+    }
+    public  static class Refresco
+    {
+        static DateTime ultimoRefresco;
+        
+       
+        public static void RefrescarLocal()
+        {
+            DateTime start = DateTime.Now;
+
+            if (ultimoRefresco == null || TimeHelper.HasSecondsElapsed(ultimoRefresco, 300)) 
+            {
+                Global.TodosLosAsset = new AllAssets(Global.urlBase + "/ajaxEquipos.php?q=a");
+                JSONAllAsset jmaa = Global.TodosLosAsset.JSONget();
+                ultimoRefresco = DateTime.Now;
+            }
             
         }
     }

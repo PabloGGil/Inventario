@@ -47,8 +47,8 @@ namespace InventarioAsset
         private void frmMovEq_Load(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            Refresco rx = new Refresco();
-            rx.RefrescarLocal();
+            //Refresco rx = new Refresco();
+            Refresco.RefrescarLocal();
             Cursor.Current = Cursors.Default;
             InitListBox(lvw);
             InitListBox(lvwFinal);
@@ -584,8 +584,8 @@ namespace InventarioAsset
             }
 
 
-             Refresco rf = new Refresco();
-            rf.RefrescarLocal();
+            //Refresco rf = new Refresco();
+            Refresco.RefrescarLocal();
             grbCampos.Enabled = false;
             cmdMover.Enabled =false;
             cmbStatus.Enabled =false;

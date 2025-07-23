@@ -15,7 +15,7 @@ namespace InventarioAsset
 {
     public partial class frmAsignacion : Form
     {
-        Refresco rx = new Refresco();
+        //Refresco rx = new Refresco();
         private int pmodo;
         string Usuario = Global.SeguridadUsr.usuario.USER_ID;
         Pedidos paux = new Pedidos();
@@ -48,7 +48,7 @@ namespace InventarioAsset
         private void frmAsignacion_Load(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            rx.RefrescarLocal();
+            Refresco.RefrescarLocal();
             Cursor.Current = Cursors.Default;
             if (getModo() == Constants.Asigna)
             {
@@ -203,7 +203,7 @@ namespace InventarioAsset
                 this.RefrescarData();
                 // ACTUALIZA LOS ESTADOS EN LA COLECCION LOCAL
                 Cursor.Current = Cursors.WaitCursor;
-                rx.RefrescarLocal();
+                Refresco.RefrescarLocal();
                 Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)

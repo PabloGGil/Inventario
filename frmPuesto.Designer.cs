@@ -56,9 +56,10 @@ namespace InventarioAsset
             // 
             // cmdNuevo
             // 
-            this.cmdNuevo.Location = new System.Drawing.Point(183, 259);
+            this.cmdNuevo.Location = new System.Drawing.Point(274, 398);
+            this.cmdNuevo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmdNuevo.Name = "cmdNuevo";
-            this.cmdNuevo.Size = new System.Drawing.Size(84, 25);
+            this.cmdNuevo.Size = new System.Drawing.Size(126, 38);
             this.cmdNuevo.TabIndex = 3;
             this.cmdNuevo.Text = "Nuevo";
             this.cmdNuevo.UseVisualStyleBackColor = true;
@@ -66,9 +67,10 @@ namespace InventarioAsset
             // 
             // cmdEditar
             // 
-            this.cmdEditar.Location = new System.Drawing.Point(273, 259);
+            this.cmdEditar.Location = new System.Drawing.Point(410, 398);
+            this.cmdEditar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmdEditar.Name = "cmdEditar";
-            this.cmdEditar.Size = new System.Drawing.Size(84, 25);
+            this.cmdEditar.Size = new System.Drawing.Size(126, 38);
             this.cmdEditar.TabIndex = 4;
             this.cmdEditar.Text = "Editar";
             this.cmdEditar.UseVisualStyleBackColor = true;
@@ -76,9 +78,10 @@ namespace InventarioAsset
             // 
             // cmdBorrar
             // 
-            this.cmdBorrar.Location = new System.Drawing.Point(363, 260);
+            this.cmdBorrar.Location = new System.Drawing.Point(544, 400);
+            this.cmdBorrar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmdBorrar.Name = "cmdBorrar";
-            this.cmdBorrar.Size = new System.Drawing.Size(84, 25);
+            this.cmdBorrar.Size = new System.Drawing.Size(126, 38);
             this.cmdBorrar.TabIndex = 5;
             this.cmdBorrar.Text = "Eliminar";
             this.cmdBorrar.UseVisualStyleBackColor = true;
@@ -92,10 +95,12 @@ namespace InventarioAsset
             this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(475, 12);
+            this.dgv.Location = new System.Drawing.Point(523, 18);
+            this.dgv.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgv.Name = "dgv";
+            this.dgv.ReadOnly = true;
             this.dgv.RowHeadersWidth = 62;
-            this.dgv.Size = new System.Drawing.Size(412, 214);
+            this.dgv.Size = new System.Drawing.Size(807, 329);
             this.dgv.TabIndex = 10;
             this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
             this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
@@ -103,9 +108,10 @@ namespace InventarioAsset
             // btnGuardar
             // 
             this.btnGuardar.Enabled = false;
-            this.btnGuardar.Location = new System.Drawing.Point(453, 261);
+            this.btnGuardar.Location = new System.Drawing.Point(680, 402);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(82, 24);
+            this.btnGuardar.Size = new System.Drawing.Size(123, 37);
             this.btnGuardar.TabIndex = 16;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -113,9 +119,10 @@ namespace InventarioAsset
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(35, 12);
+            this.btnBuscar.Location = new System.Drawing.Point(52, 18);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(48, 21);
+            this.btnBuscar.Size = new System.Drawing.Size(72, 32);
             this.btnBuscar.TabIndex = 17;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -123,17 +130,19 @@ namespace InventarioAsset
             // 
             // txtbuscar
             // 
-            this.txtbuscar.Location = new System.Drawing.Point(89, 13);
+            this.txtbuscar.Location = new System.Drawing.Point(134, 20);
+            this.txtbuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtbuscar.Name = "txtbuscar";
-            this.txtbuscar.Size = new System.Drawing.Size(143, 20);
+            this.txtbuscar.Size = new System.Drawing.Size(212, 26);
             this.txtbuscar.TabIndex = 18;
             this.txtbuscar.TextChanged += new System.EventHandler(this.txtbuscar_TextChanged);
             // 
             // btncancelar
             // 
-            this.btncancelar.Location = new System.Drawing.Point(554, 260);
+            this.btncancelar.Location = new System.Drawing.Point(831, 400);
+            this.btncancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btncancelar.Name = "btncancelar";
-            this.btncancelar.Size = new System.Drawing.Size(71, 25);
+            this.btncancelar.Size = new System.Drawing.Size(106, 38);
             this.btncancelar.TabIndex = 20;
             this.btncancelar.Text = "Cancelar";
             this.btncancelar.UseVisualStyleBackColor = true;
@@ -153,119 +162,135 @@ namespace InventarioAsset
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 57);
+            this.groupBox1.Location = new System.Drawing.Point(18, 88);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(435, 169);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(497, 260);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Datos del puesto";
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(398, 130);
+            this.button1.Location = new System.Drawing.Point(423, 200);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(33, 19);
+            this.button1.Size = new System.Drawing.Size(50, 29);
             this.button1.TabIndex = 27;
             this.button1.Text = "...";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // txtAdmin
             // 
-            this.txtAdmin.Location = new System.Drawing.Point(114, 130);
+            this.txtAdmin.Location = new System.Drawing.Point(171, 200);
+            this.txtAdmin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAdmin.Name = "txtAdmin";
-            this.txtAdmin.Size = new System.Drawing.Size(273, 20);
+            this.txtAdmin.Size = new System.Drawing.Size(244, 26);
             this.txtAdmin.TabIndex = 26;
             // 
             // Admin
             // 
             this.Admin.AutoSize = true;
-            this.Admin.Location = new System.Drawing.Point(23, 133);
+            this.Admin.Location = new System.Drawing.Point(34, 205);
+            this.Admin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Admin.Name = "Admin";
-            this.Admin.Size = new System.Drawing.Size(50, 15);
+            this.Admin.Size = new System.Drawing.Size(64, 20);
             this.Admin.TabIndex = 25;
             this.Admin.Text = "Usuario";
             // 
             // txtComentario
             // 
-            this.txtComentario.Location = new System.Drawing.Point(114, 104);
+            this.txtComentario.Location = new System.Drawing.Point(171, 160);
+            this.txtComentario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtComentario.Name = "txtComentario";
-            this.txtComentario.Size = new System.Drawing.Size(273, 20);
+            this.txtComentario.Size = new System.Drawing.Size(244, 26);
             this.txtComentario.TabIndex = 24;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 107);
+            this.label4.Location = new System.Drawing.Point(34, 165);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 15);
+            this.label4.Size = new System.Drawing.Size(91, 20);
             this.label4.TabIndex = 23;
             this.label4.Text = "Comentario";
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(114, 81);
+            this.txtDescripcion.Location = new System.Drawing.Point(171, 125);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(273, 20);
+            this.txtDescripcion.Size = new System.Drawing.Size(244, 26);
             this.txtDescripcion.TabIndex = 22;
             // 
             // txtResponsable
             // 
-            this.txtResponsable.Location = new System.Drawing.Point(114, 57);
+            this.txtResponsable.Location = new System.Drawing.Point(171, 88);
+            this.txtResponsable.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtResponsable.Name = "txtResponsable";
-            this.txtResponsable.Size = new System.Drawing.Size(273, 20);
+            this.txtResponsable.Size = new System.Drawing.Size(244, 26);
             this.txtResponsable.TabIndex = 21;
             // 
             // txtNombre
             // 
             this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNombre.Location = new System.Drawing.Point(114, 34);
+            this.txtNombre.Location = new System.Drawing.Point(171, 52);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(273, 20);
+            this.txtNombre.Size = new System.Drawing.Size(244, 26);
             this.txtNombre.TabIndex = 20;
             // 
             // cmdSelUsr
             // 
             this.cmdSelUsr.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdSelUsr.Location = new System.Drawing.Point(398, 57);
+            this.cmdSelUsr.Location = new System.Drawing.Point(423, 88);
+            this.cmdSelUsr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmdSelUsr.Name = "cmdSelUsr";
-            this.cmdSelUsr.Size = new System.Drawing.Size(33, 19);
+            this.cmdSelUsr.Size = new System.Drawing.Size(50, 29);
             this.cmdSelUsr.TabIndex = 19;
             this.cmdSelUsr.Text = "...";
             this.cmdSelUsr.UseVisualStyleBackColor = true;
+            this.cmdSelUsr.Click += new System.EventHandler(this.cmdSelUsr_Click_1);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 59);
+            this.label3.Location = new System.Drawing.Point(34, 91);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 15);
+            this.label3.Size = new System.Drawing.Size(103, 20);
             this.label3.TabIndex = 18;
             this.label3.Text = "Responsable";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 83);
+            this.label2.Location = new System.Drawing.Point(34, 128);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 15);
+            this.label2.Size = new System.Drawing.Size(92, 20);
             this.label2.TabIndex = 17;
             this.label2.Text = "Descripcion";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 37);
+            this.label1.Location = new System.Drawing.Point(34, 57);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 15);
+            this.label1.Size = new System.Drawing.Size(59, 20);
             this.label1.TabIndex = 16;
             this.label1.Text = "Puesto";
             // 
             // frmPuesto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 307);
+            this.ClientSize = new System.Drawing.Size(1350, 472);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.txtbuscar);
@@ -275,6 +300,7 @@ namespace InventarioAsset
             this.Controls.Add(this.cmdBorrar);
             this.Controls.Add(this.cmdEditar);
             this.Controls.Add(this.cmdNuevo);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmPuesto";
             this.Text = "Puesto";
             this.Load += new System.EventHandler(this.frmPuesto_Load);

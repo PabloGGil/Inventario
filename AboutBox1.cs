@@ -18,6 +18,7 @@ namespace InventarioAsset
             if (ApplicationDeployment.IsNetworkDeployed)
                 this.labelVersion.Text = "Versión: " + ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
 
+            this.labelVersion.Text = "Versión: " + ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription+"\n"+ Global.PathAPP;

@@ -179,20 +179,18 @@ namespace InventarioAsset
                 {
                     Seguridad cif = new Seguridad();
                     Global.m.user = "nborucki";
-                    string cachus = "d2kcqQfdOl3X8BF/ljZE0A==";
+                    string cachus = "d2kcqQfdOl1pfY6Tm8+NVA==";
                     Global.m.password = cif.Descifrar(cachus);
                     /* --------------------------------------------------------
                      * Cifrar
                      * --------------------------------------------------------*/
 
-                    //string textoplano = "Kattegat2070";
+                    //string textoplano = "";
                     //Console.WriteLine(cif.Cifrar(textoplano));
 
                     Global.xc = new User_Sec(Global.urlBase + "/login.php");
                    Global.SeguridadUsr = Global.xc.JSONpost(Global.m);
-                    //Aca valido si hay conexion
-
-                    //string cachus = "gFgzH+a5uHIu2PchFT7wuA==";
+                   
 
 
                     string k = Global.SeguridadUsr.login.response;
@@ -220,12 +218,16 @@ namespace InventarioAsset
                 }
                 tempToolStripMenuItem.Visible = true;
                 tempToolStripMenuItem.Enabled = false;
-
+                // -- Jarcodeo permisos menu filtro y menu ayuda -- //
+                filtrosToolStripMenuItem.Enabled = true;
+                helpMenu.Enabled = true;
+                aboutToolStripMenuItem.Enabled = true;
 
                 //Global.TodosLosAsset = new AllAssets(Global.urlBase + "/ajaxEquipos.php?q=a");
                 //JSONAllAsset jmaa = Global.TodosLosAsset.JSONget();
-                Refresco rx = new Refresco();
-                rx.RefrescarLocal();
+
+                //Refresco rx = new Refresco();
+                //rx.RefrescarLocal();
 
                 toolStripMenuItem1.Text =  Global.SeguridadUsr.usuario.USER_ID;
                             
@@ -587,6 +589,37 @@ namespace InventarioAsset
         private void inventarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void listadoDeRevisadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //DialogResult dlgResult = MessageBox.Show("Esta a punto de resetear la información de la revision. Acepta??", "Confirmacion", MessageBoxButtons.YesNo);
+            //if (dlgResult == DialogResult.No)
+            //    return;
+
+            IO RepEstado = new IO();
+            // DateTime fecha = new DateTime( );
+            List<EquipoExt> reporteRevisados = new List<EquipoExt>();
+            reporteRevisados = Global.TodosLosAsset.getEquiposRevisados();
+            RepEstado.exportar(reporteRevisados, "Reporte_Encontrados_" + DateTime.Now.ToString("ddMMyyyy"));
+        }
+
+        private void helpMenu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void filtrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //frmFiltro frm = new frmFiltro();
+            frmFiltro newMDIChild = new frmFiltro();
+            //newMDIChild.setModo(Constants.Asigna);
+
+            // Set the Parent Form of the Child window.
+            newMDIChild.MdiParent = this;
+            // Display the new form.
+            newMDIChild.Show();
+            //frm.Show();
         }
     }
 

@@ -27,6 +27,7 @@ namespace InventarioAsset
     }
     public class Jpuesto
     {
+        //Tener en cuenta que en el get se recibe ID_LUGAR y en el post va idlugar
         string _url;
         public string ID { get; set; }
         public string idlugar { get; set; }
@@ -37,7 +38,7 @@ namespace InventarioAsset
         public string fechacreacion { get; set; }
         public string q { get; set; }
         public string admin { get; set; }
-
+        //public string idAdminUser { get; set; }
         public string activo { get; set; }
 
         #region METODOS

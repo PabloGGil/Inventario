@@ -17,6 +17,7 @@ namespace InventarioAsset
     {
         int boton;
         Puesto paux = new Puesto();
+        string IDPuesto = "";
         public frmPuesto()
         {
             InitializeComponent();
@@ -36,10 +37,15 @@ namespace InventarioAsset
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             refrescar();
             dgv.Enabled = true;
-            cmdBorrar.Enabled = false;
-            cmdEditar.Enabled = false;
+            cmdBorrar.Enabled = true;
+            cmdEditar.Enabled = true;
             cmdNuevo.Enabled = true;
-            groupBox1.Enabled = false;
+            groupBox1.Enabled = true;
+            //if(lvar.coleccion)
+            Cursor.Current = Cursors.WaitCursor;
+            //Refresco rx = new Refresco();
+            Refresco.RefrescarLocal();
+            Cursor.Current = Cursors.Default;
         }
 
         private void cmdSelUsr_Click(object sender, EventArgs e)
@@ -77,16 +83,20 @@ namespace InventarioAsset
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             groupBox1.Enabled = true;
-            txtAdmin.Text =dgv.CurrentRow.Cells["Admin"].Value.ToString();
+            txtAdmin.Text =dgv.CurrentRow.Cells["Admin"].Value is null ? "" : dgv.CurrentRow.Cells["Admin"].Value.ToString();
             txtComentario.Text = dgv.CurrentRow.Cells["Comentario"].Value is null ?"" : dgv.CurrentRow.Cells["Comentario"].Value.ToString();
             txtDescripcion.Text = dgv.CurrentRow.Cells["Descripcion"].Value is null ?"":dgv.CurrentRow.Cells["Descripcion"].Value.ToString();
             txtResponsable.Text = dgv.CurrentRow.Cells["Responsable"].Value is null ? "" : dgv.CurrentRow.Cells["Responsable"].Value.ToString();
             txtNombre.Text = dgv.CurrentRow.Cells["NombrePuesto"].Value is null ? "" : dgv.CurrentRow.Cells["NombrePuesto"].Value.ToString();
+            IDPuesto= dgv.CurrentRow.Cells["ID"].Value is null ?"": dgv.CurrentRow.Cells["ID"].Value.ToString();
             btnGuardar.Enabled = true;
+            cmdEditar.Enabled = true;
+            cmdBorrar.Enabled = true;
         }
 
         private void cmdNuevo_Click(object sender, EventArgs e)
         {
+            LimpiarText();
             boton = 1;
             cmdEditar.Enabled = false;
             dgv.Enabled = false;
@@ -94,24 +104,76 @@ namespace InventarioAsset
             groupBox1.Enabled = true;
             btnGuardar.Enabled = true;
         }
+        //public void LimpiarCampos()
+        //{
+        //    txtAdmin.Text = "";
+        //    txtComentario.Text = "";
+        //    txtDescripcion.Text = "";
+        //    txtNombre.Text = "";
+        //    txtResponsable.Text = "";
+        //}
         private void cmdEditar_Click(object sender, EventArgs e)
         {
-            boton = 2;
-            dgv.Enabled = false;
-            cmdNuevo.Enabled =false;
-            cmdBorrar.Enabled =false;
-            txtNombre.Enabled = false;
-            groupBox1.Enabled = true;
-            btnGuardar.Enabled = true;
+            if (!string.IsNullOrEmpty(txtNombre.Text))
+            {
+                boton = 2;
+                dgv.Enabled = false;
+                cmdNuevo.Enabled = false;
+                cmdBorrar.Enabled = false;
+                txtNombre.Enabled = false;
+                groupBox1.Enabled = true;
+                btnGuardar.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un puesto de la vista");
+            }
         }
 
         private void cmdBorrar_Click(object sender, EventArgs e)
         {
-            boton = 3;
-            dgv.Enabled = false;
-            cmdEditar.Enabled =false;
-            cmdNuevo.Enabled =false;
-            groupBox1.Enabled = false;
+            RetCode rc = new RetCode();
+            List<EquipoExt> lp = new List<EquipoExt>();
+
+            if (!string.IsNullOrEmpty(txtNombre.Text ))
+            {
+                lp=Global.TodosLosAsset.getEquiposxPuesto(txtNombre.Text);
+                if (lp.Count>0)
+                {
+                    MessageBox.Show("Hay " + lp.Count + " equipos en el puesto que quiere borrar. Cambie los equipos de puesto");
+                    return;
+                }
+                boton = 3;
+                dgv.Enabled = false;
+                cmdEditar.Enabled = false;
+                cmdNuevo.Enabled = false;
+                groupBox1.Enabled = false;
+                Puesto p = new Puesto();
+                p.NombrePuesto = txtNombre.Text.ToUpper();
+                p.Responsable = txtResponsable.Text;
+                p.Descripcion = txtDescripcion.Text;
+                p.Comentario = txtComentario.Text;
+                p.Admin = txtAdmin.Text;
+                p.Activo = "1";
+                p.id = IDPuesto;
+                rc = p.BorrarPuestos(p);
+                if (rc.rc != "0")
+                {
+                    MessageBox.Show("Error: No se pudo borrar el puesto. \n" + rc.msg);
+                }
+                else
+                {
+                    MessageBox.Show("Se borro el puesto seleccionado"); 
+                }
+                dgv.Enabled = true;
+               
+                LimpiarText();
+                refrescar();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un puesto de la vista");
+            }
 
         }
         public void Buscar(string Nombre)
@@ -147,6 +209,7 @@ namespace InventarioAsset
             p.Comentario = txtComentario.Text;
             p.Admin = txtAdmin.Text;
             p.Activo = "1";
+            p.id = IDPuesto;
 
             switch (boton)
             {
@@ -164,23 +227,21 @@ namespace InventarioAsset
                     }
                     break;
                 case 2:
-                    p.id = paux.id;
+                    //p.id = paux.id;
                     rc = p.EditarPuestos(p);
                     if (rc.rc != "0")
                         MessageBox.Show("Error: No se pudo editar el puesto.\n" + rc.msg);
                     break;
 
                 case 3:
-                    p.id = paux.id;
-                    rc = p.BorrarPuestos(p);
-                    if (rc.rc != "0")
-                        MessageBox.Show("Error: No se pudo borrar el puesto. \n" + rc.msg);
+                    //p.id = paux.id;
+     
                     break;
             }
             refrescar();
             dgv.Enabled = true;
-            cmdBorrar.Enabled = false;
-            cmdEditar.Enabled = false;
+            cmdBorrar.Enabled = true;
+            cmdEditar.Enabled = true;
             cmdNuevo.Enabled = true;
             btnGuardar.Enabled = false;
             txtNombre.Enabled = true;
@@ -229,24 +290,35 @@ namespace InventarioAsset
         }
         private void SelFilaDGV(string puesto)
         {
-            //this.dgv.CurrentCell = dgv[1, 8];
-            //this.dgv.CurrentCell.Selected = true;
-            for (int i = 0; i < dgv.Rows.Count ; i++)
+            ////this.dgv.CurrentCell = dgv[1, 8];
+            ////this.dgv.CurrentCell.Selected = true;
+            //for (int i = 0; i < dgv.Rows.Count ; i++)
+            //{
+            //    string txt = dgv.Rows[i].Cells["NombrePuesto"].Value.ToString();
+            //    //Console.WriteLine(txt);
+            //    if (txt != puesto)
+            //    {
+            //        continue;
+            //    }
+            //    Console.WriteLine("encontré");
+            //    //dgv.Rows[i].Cells["NombrePuesto"].Value;
+            //    this.dgv.CurrentCell = dgv[1, i];
+            //    this.dgv.CurrentCell.Selected = true;
+
+            //    break;
+            //}
+            foreach (DataGridViewRow row in dgv.Rows)
             {
-                string txt = dgv.Rows[i].Cells["NombrePuesto"].Value.ToString();
-                //Console.WriteLine(txt);
-                if (txt != puesto)
+                if (row.Cells["NombrePuesto"].Value != null && row.Cells["NombrePuesto"].Value.ToString() == puesto.ToUpper())
                 {
-                    continue;
+                    row.Selected = true;
+                    dgv.CurrentCell = row.Cells["NombrePuesto"]; // Opcional: Establece la celda actual
+                    break; // Termina la búsqueda una vez encontrada la fila
                 }
-                Console.WriteLine("encontré");
-                //dgv.Rows[i].Cells["NombrePuesto"].Value;
-                this.dgv.CurrentCell = dgv[1, i];
-                this.dgv.CurrentCell.Selected = true;
-               
-                break;
             }
+            IDPuesto = dgv.CurrentRow.Cells["ID"].Value is null ? "" : dgv.CurrentRow.Cells["ID"].Value.ToString();
         }
+        
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -261,6 +333,38 @@ namespace InventarioAsset
         private void txtbuscar_TextChanged(object sender, EventArgs e)
         {
             //txtbuscar.Text = txtbuscar.Text.ToUpper();
+        }
+
+        private void cmdSelUsr_Click_1(object sender, EventArgs e)
+        {
+            JSONUsr xusr = new JSONUsr();
+            xusr = xusr.JSONget();
+            frmData frm = new frmData();
+            frm.Busqueda(true);
+            frm.Text = "Seleccion de usuarios";
+            frm.DataSource(xusr.coleccion.ToList());
+            //frm.Show();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                txtResponsable.Text = frm.valorRetorno; //lee la propiedad
+                ; //la pone en el título
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            JSONUsr xusr = new JSONUsr();
+            xusr = xusr.JSONget();
+            frmData frm = new frmData();
+            frm.Busqueda(true);
+            frm.Text = "Seleccion de usuarios";
+            frm.DataSource(xusr.coleccion.ToList());
+            //frm.Show();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                txtAdmin.Text = frm.valorRetorno; //lee la propiedad
+                ; //la pone en el título
+            }
         }
     }
 }

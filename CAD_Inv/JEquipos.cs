@@ -178,7 +178,8 @@ namespace InventarioAsset
             return null;
         }
 
-        public JSONAllAsset JSONget()
+        //public JSONAllAsset JSONget()
+         public JSONAllAsset JSONget()
         {
             WebRequest oRequest = WebRequest.Create(url);
             oRequest.Method = "get";
@@ -189,7 +190,7 @@ namespace InventarioAsset
             Console.WriteLine(((HttpWebResponse)oResponse).StatusDescription);
             using (var oSR = new StreamReader(oResponse.GetResponseStream()))
             {
-                var js = oSR.ReadToEnd();
+                var js =  oSR.ReadToEnd();
                 lvar = JsonConvert.DeserializeObject<JSONAllAsset>(js);
 
             }
@@ -319,7 +320,7 @@ namespace InventarioAsset
         public List<EquipoExt> getEquiposRevisados()
         {
             List<AssetCompleto> AssCom = new List<AssetCompleto>();
-            AssCom = lvar.coleccion.Where(m => (m.REVISADO=="1")).ToList();
+            AssCom = lvar.coleccion.Where(m => (m.REVISADO=="1" || m.ID_PUESTO=="ZZZ-0-000")).ToList();
             List<EquipoExt> lp = AssCom.ConvertAll(new Converter<AssetCompleto, EquipoExt>(AssetToEq));
             return lp;
         }
@@ -466,6 +467,28 @@ namespace InventarioAsset
             return ma;
         }
 
+        public List<EquipoExt> getEquiposfiltro(EquipoExt ext)
+        {
+            if (ext.DESCRIPCION == null)
+            {
+                return null;
+            }
+            List<AssetCompleto> AssCom = new List<AssetCompleto>();
+            AssCom = lvar.coleccion.Where(m => (m.MODELO == ext.MODELO) && (m.MARCA == ext.MARCA)  && (m.DESCRIPCION == ext.DESCRIPCION)).ToList();
+            if (!string.IsNullOrEmpty(ext.ID_Estado))
+            {
+                AssCom = AssCom.Where(m => (m.STATUS == ext.ID_Estado)).ToList();
+            }
+            if (!string.IsNullOrEmpty(ext.Puesto))
+            {
+                AssCom = AssCom.Where(m => (m.ID_PUESTO==ext.Puesto)).ToList();
+            }
+
+
+            List<EquipoExt> lp = AssCom.ConvertAll(new Converter<AssetCompleto, EquipoExt>(AssetToEq));
+
+            return lp;
+        }
 
         public int Cuenta()
         {

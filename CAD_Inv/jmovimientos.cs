@@ -46,7 +46,7 @@ namespace InventarioAsset
                 List<Transconf> lt = new List<Transconf>();
                 jconfirma jc = new jconfirma();
                 lt = jc.GetJTodos().coleccion.transconf.ToList();
-                Transconf tc = lt.Single(o => o.ID_ASSET == inv);
+                Transconf tc = lt.FirstOrDefault(o => o.ID_ASSET == inv);
                 return tc.TOKEN;
             }
             catch (Exception ex)

@@ -90,8 +90,8 @@ namespace InventarioAsset
         {
             dgvAsset.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Cursor.Current = Cursors.WaitCursor;
-            Refresco rx = new Refresco();
-            rx.RefrescarLocal();
+            //Refresco rx = new Refresco();
+            Refresco.RefrescarLocal();
             Cursor.Current = Cursors.Default;
             try
             {
@@ -111,6 +111,7 @@ namespace InventarioAsset
                 cmbCriterio.Items.Add("Usuario");
                 cmbCriterio.Items.Add("Estado");
                 cmbCriterio.Items.Add("OOCC");
+                cmbCriterio.Items.Add("Revisados");
                 //cmbEquipo.DataBindings = "descr";
                 cmbCriterio.DisplayMember = "Inventario";
                 //cx = InventarioAsset.BaseDatos.Conectar();
@@ -139,6 +140,11 @@ namespace InventarioAsset
                 //{
                 switch (cmbCriterio.SelectedItem.ToString())
                 {
+                    case "Revisados":
+                        //List<EquipoExt> lst = new List<EquipoExt>();
+                        lst = Global.TodosLosAsset.getEquiposRevisados();
+                        dgvAsset.DataSource = lst;
+                        break;
                     case "Tipo Equipo":
                         dgvAsset.DataSource = null;
                         //dgvAsset.Rows.Clear();
@@ -317,7 +323,7 @@ namespace InventarioAsset
                     fs.Close();
                 }
 
-                dt = converter.ToDataTable(lst);
+                dt = converter.ToDataTable(this.lst);
                 SLDocument mydoc = new SLDocument();
                 mydoc.AddWorksheet("Inventario");
                 mydoc.ImportDataTable(1, 1, dt, true);
@@ -695,8 +701,8 @@ namespace InventarioAsset
             //{
             //    MessageBox.Show("Error: No se pudo actualizar");
             //}
-            Refresco rx = new Refresco();
-            rx.RefrescarLocal();
+            //Refresco rx = new Refresco();
+            Refresco.RefrescarLocal();
 
         }
 

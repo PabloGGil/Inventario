@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using Microsoft.VisualBasic;
+using System.Windows;
 ////using CAD_Inv;
 
 ////using CAD_Inv;
@@ -146,6 +148,11 @@ namespace InventarioAsset
 
             public RetCode Baja(Movimientos mv)
             {
+            string baja = Microsoft.VisualBasic.Interaction.InputBox("ingrese el nro de inventario que va a dar de baja");
+                if (baja != mv.Inventario[0].id)
+                {
+                    MessageBox.Show("el nro no coincide.\nNo se realiza la baja");
+                }
                 RetCode rc = new RetCode();
                 jMovimientos jmv = new jMovimientos();
                 jmv.idAdminUser = Global.SeguridadUsr.usuario.ID;
