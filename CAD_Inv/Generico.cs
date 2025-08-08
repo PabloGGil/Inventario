@@ -86,7 +86,7 @@ namespace InventarioAsset
         {
             DateTime start = DateTime.Now;
 
-            if (ultimoRefresco == null || TimeHelper.HasSecondsElapsed(ultimoRefresco, 300)) 
+            if (ultimoRefresco == null || TimeHelper.HasSecondsElapsed(ultimoRefresco, 30)) 
             {
                 Global.TodosLosAsset = new AllAssets(Global.urlBase + "/ajaxEquipos.php?q=a");
                 JSONAllAsset jmaa = Global.TodosLosAsset.JSONget();

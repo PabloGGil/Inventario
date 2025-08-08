@@ -221,7 +221,6 @@ namespace InventarioAsset
             // 
             // btnAbrirExp
             // 
-            this.btnAbrirExp.Enabled = false;
             this.btnAbrirExp.Location = new System.Drawing.Point(380, 34);
             this.btnAbrirExp.Name = "btnAbrirExp";
             this.btnAbrirExp.Size = new System.Drawing.Size(34, 23);

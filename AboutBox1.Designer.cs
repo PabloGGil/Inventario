@@ -152,6 +152,7 @@ namespace InventarioAsset
             this.okButton.Size = new System.Drawing.Size(112, 34);
             this.okButton.TabIndex = 24;
             this.okButton.Text = "&Aceptar";
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // AboutBox1
             // 

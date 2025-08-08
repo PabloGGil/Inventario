@@ -659,12 +659,12 @@ namespace InventarioAsset
                     break;
                 case "99":
                     txtPuesto.Enabled = false;
-                    txtUsuario.Enabled = true;
+                    txtUsuario.Enabled = false;
                     txtPuesto.Text = "";
                     break;
                 default:
                     txtPuesto.Enabled = false;
-                    txtUsuario.Enabled = true;
+                    txtUsuario.Enabled = false;
                     break;
             }
             label6.Text = statusDest + "  " + indexDest;

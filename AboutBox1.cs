@@ -11,17 +11,19 @@ namespace InventarioAsset
         {
             InitializeComponent();
            //this.te = String.Format("Acerca de {0}", AssemblyTitle);
-            this.labelProductName.Text = "For Pola MR";
-           // this.labelVersion.Text = String.Format("Versión {0}", Assembly.GetExecutingAssembly().GetName().Version);
-            //this.labelVersion.Text = ApplicationDeployment.Deployment.CurrentVersion.ToString();
-            //this.labelVersion.Text = String.Format("Versión {0}", Application.ProductVersion);
+            this.labelProductName.Text = "Inventario 2.0 For Pola ®";
             if (ApplicationDeployment.IsNetworkDeployed)
+            {
                 this.labelVersion.Text = "Versión: " + ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
-
-            this.labelVersion.Text = "Versión: " + ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
-            this.labelCopyright.Text = AssemblyCopyright;
-            this.labelCompanyName.Text = AssemblyCompany;
-            this.textBoxDescription.Text = AssemblyDescription+"\n"+ Global.PathAPP;
+            }
+            else
+            {
+                Version assemblyVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+                this.labelVersion.Text = "Versión: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+                this.labelCopyright.Text = AssemblyCopyright;
+                this.labelCompanyName.Text = AssemblyCompany;
+                this.textBoxDescription.Text = AssemblyDescription + "\n" + Global.PathAPP;
+            }
         }
 
         #region Descriptores de acceso de atributos de ensamblado
@@ -112,6 +114,11 @@ namespace InventarioAsset
         private void labelVersion_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

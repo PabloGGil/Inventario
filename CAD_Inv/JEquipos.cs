@@ -303,13 +303,13 @@ namespace InventarioAsset
             List<AssetCompleto> AssCom = new List<AssetCompleto>();
             if (Estado == "BAJA")
             {
-                AssCom = lvar.coleccion.Where(m => (m.STATUS_DET == "DONACION") || (m.STATUS_DET == "VENTA INTERNA") || (m.STATUS_DET == "BAJA")).ToList();
+                AssCom = lvar.coleccion.Where(m => (m.STATUS_DET == "DONACION") || (m.STATUS_DET == "VENTA INTERNA") || (m.STATUS_DET == "BAJA")).OrderByDescending(p=>p.ID_ASSET).ToList();
 
             }
             else
             {
 
-                AssCom = lvar.coleccion.Where(m => m.STATUS == Estado).ToList();
+                AssCom = lvar.coleccion.Where(m => m.STATUS == Estado).OrderByDescending(p => p.ID_ASSET).ToList();
 
 
             }
@@ -320,7 +320,7 @@ namespace InventarioAsset
         public List<EquipoExt> getEquiposRevisados()
         {
             List<AssetCompleto> AssCom = new List<AssetCompleto>();
-            AssCom = lvar.coleccion.Where(m => (m.REVISADO=="1" || m.ID_PUESTO=="ZZZ-0-000")).ToList();
+            AssCom = lvar.coleccion.Where(m => (m.REVISADO=="1" || m.ID_PUESTO=="ZZZ-0-000")).OrderByDescending(p=>p.ID_ASSET).ToList();
             List<EquipoExt> lp = AssCom.ConvertAll(new Converter<AssetCompleto, EquipoExt>(AssetToEq));
             return lp;
         }

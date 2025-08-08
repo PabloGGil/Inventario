@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 //using System.Data.OleDb;
 using System.Data.SqlClient;
-using System.Windows.Forms;
-using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 //using CAD_Inv;
 //using CL_Inv;
 
@@ -28,10 +29,11 @@ namespace InventarioAsset
 
         private void frmPedido_Load(object sender, EventArgs e)
         {
-            //string query;
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
+                Refresco.RefrescarLocal();
+                Cursor.Current = Cursors.Default;
                 cmbEquipo.DisplayMember = "Tipo";
                
 
@@ -123,10 +125,11 @@ namespace InventarioAsset
                 if (dgv.CurrentRow.Cells["OS"].Value == null)
                 { 
                     txtOS.Text = "";
+                    return;
                 }
-                else {
-                        txtOS.Text = dgv.CurrentRow.Cells["OS"].Value.ToString();
-                    }
+               
+                txtOS.Text = dgv.CurrentRow.Cells["OS"].Value.ToString();
+                
                 cmbEquipo.Text = dgv.CurrentRow.Cells["Equipo"].Value.ToString();
                 cmbMarca.Text = dgv.CurrentRow.Cells["Marca"].Value.ToString();
                 cmbModelo.Text = dgv.CurrentRow.Cells["Modelo"].Value.ToString();
@@ -152,7 +155,7 @@ namespace InventarioAsset
                 rc = np.BorrarPedido(np);
                 if (Convert.ToInt32(rc.rc) != 0)
                 {
-                    MessageBox.Show("error en la carga");
+                    MessageBox.Show("Error al eliminar");
                 }
                 _IDSel = "";
             }
@@ -185,41 +188,14 @@ namespace InventarioAsset
 
         private void cmbMarca_DropDownClosed(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    if (cmbMarca.SelectedItem == null || cmbEquipo.SelectedItem == null)
-            //    {
-            //        cmbModelo.DataSource = null;
-            //    }
-            //    else
-            //    {
-            //        cmbModelo.DataSource = Global.TodosLosAsset.getModeloxMarca(cmbMarca.SelectedItem.ToString(), cmbEquipo.SelectedItem.ToString());
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    InventarioAsset.ELog.save(this, ex);
-            //}
+ 
         }
     
 
 
         private void cmbEquipo_DropDownClosed(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    if (cmbEquipo.SelectedItem.ToString() == null)
-            //    {
-            //        cmbModelo.DataSource = null;
-            //    }
-            //    else
-            //    {
-            //        cmbMarca.DataSource = Global.TodosLosAsset.getMarcaxTipo(cmbEquipo.SelectedValue.ToString());
-            //    }
-            //}catch(Exception ex)
-            //{
-            //    InventarioAsset.ELog.save(this, ex);
-            //}
+
         }
 
         private void cmdEditar_Click(object sender, EventArgs e)
@@ -259,15 +235,28 @@ namespace InventarioAsset
         {
             try
             {
-                if (cmbEquipo.SelectedItem.ToString() == null)
+                if (cmbEquipo.SelectedItem == null || cmbEquipo.SelectedValue == null)
                 {
                     cmbModelo.DataSource = null;
+                    cmbMarca.DataSource = null;
+                    return;
                 }
-                else
+
+                string tipoSeleccionado = cmbEquipo.SelectedValue.ToString();
+
+                // Obtener las marcas
+                 var marcas = Global.TodosLosAsset.getMarcaxTipo(tipoSeleccionado);
+
+                // Verificar si se obtuvieron marcas
+                if (marcas == null || !marcas.Any())
                 {
-                    cmbMarca.DataSource = Global.TodosLosAsset.getMarcaxTipo(cmbEquipo.SelectedValue.ToString());
-                    cmbMarca.SelectedIndex = 0;
+                    cmbMarca.DataSource = null;
+                    return;
                 }
+
+                // Asignar el DataSource
+                cmbMarca.DataSource = marcas;
+                cmbMarca.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -282,12 +271,18 @@ namespace InventarioAsset
                 if (cmbMarca.SelectedItem == null || cmbEquipo.SelectedItem == null)
                 {
                     cmbModelo.DataSource = null;
+                    return;
                 }
-                else
+                string MarcaSeleccionada = cmbMarca.SelectedValue.ToString();
+                string EquipoSeleccionado = cmbEquipo.SelectedItem.ToString();
+                var modelos= Global.TodosLosAsset.getModeloxMarca(MarcaSeleccionada, EquipoSeleccionado);
+                if(modelos==null ||!modelos.Any())
                 {
-                    cmbModelo.DataSource = Global.TodosLosAsset.getModeloxMarca(cmbMarca.SelectedItem.ToString(), cmbEquipo.SelectedItem.ToString());
-                    cmbModelo.SelectedIndex = 0;
+                    modelos = null;
+                    return;
                 }
+                cmbModelo.DataSource = modelos;
+                cmbModelo.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
