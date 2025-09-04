@@ -3,35 +3,67 @@
   "WorkspaceRootPath": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|c:\\users\\pablo\\mis_programas\\c#\\inventario2.0\\aboutbox1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:aboutbox1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|InventarioAsset||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|c:\\users\\pablo\\mis_programas\\c#\\inventario2.0\\aboutbox1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:aboutbox1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|c:\\users\\pablo\\mis_programas\\c#\\inventario2.0\\cad_inv\\jmovimientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:cad_inv\\jmovimientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|c:\\users\\pablo\\mis_programas\\c#\\inventario2.0\\pedidoequipos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:pedidoequipos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\cl_inv\\movimientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:cl_inv\\movimientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|c:\\users\\pablo\\mis_programas\\c#\\inventario2.0\\cad_inv\\jpedidos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:cad_inv\\jpedidos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmmoveq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:frmmoveq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|c:\\users\\pablo\\mis_programas\\c#\\inventario2.0\\pedidoequipos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:pedidoequipos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmmoveq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:frmmoveq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|c:\\users\\pablo\\mis_programas\\c#\\inventario2.0\\consultainv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\mdiparent1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:mdiparent1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmasignacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:frmasignacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmasignacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:frmasignacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmpuesto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:frmpuesto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmpuesto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:frmpuesto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmfiltro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:frmfiltro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\consultainv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:consultainv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|c:\\users\\pablo\\mis_programas\\c#\\inventario2.0\\consultainv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\cad_inv\\jequipos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:cad_inv\\jequipos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\cad_inv\\generico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:cad_inv\\generico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\consultainv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:consultainv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|InventarioAsset||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmmovimiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|solutionrelative:frmmovimiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6C35AC05-D795-40C3-BE56-40276EC440B5}|InventarioAsset.csproj|c:\\users\\pablo\\mis_programas\\c#\\inventario2.0\\properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}",
@@ -45,99 +77,155 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AboutBox1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\AboutBox1.cs",
-              "RelativeDocumentMoniker": "AboutBox1.cs",
-              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\AboutBox1.cs [Dise\u00F1o]*",
-              "RelativeToolTip": "AboutBox1.cs [Dise\u00F1o]*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-08T23:40:16.815Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PedidoEquipos.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\PedidoEquipos.cs",
-              "RelativeDocumentMoniker": "PedidoEquipos.cs",
-              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\PedidoEquipos.cs [Dise\u00F1o]",
-              "RelativeToolTip": "PedidoEquipos.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-08T21:54:51.043Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "DocumentIndex": 0,
+              "Title": "InventarioAsset",
+              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\InventarioAsset.csproj",
+              "RelativeDocumentMoniker": "InventarioAsset.csproj",
+              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\InventarioAsset.csproj*",
+              "RelativeToolTip": "InventarioAsset.csproj*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-09-04T12:43:13.857Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "PedidoEquipos.cs",
-              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\PedidoEquipos.cs",
-              "RelativeDocumentMoniker": "PedidoEquipos.cs",
-              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\PedidoEquipos.cs",
-              "RelativeToolTip": "PedidoEquipos.cs",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAjwJAAAAALAAAAAAAAAA==",
+              "Title": "Movimientos.cs",
+              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\CL_Inv\\Movimientos.cs",
+              "RelativeDocumentMoniker": "CL_Inv\\Movimientos.cs",
+              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\CL_Inv\\Movimientos.cs",
+              "RelativeToolTip": "CL_Inv\\Movimientos.cs",
+              "ViewState": "AgIAAA8CAAAAAAAAAAAnwBgCAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-08T21:52:39.942Z",
+              "WhenOpened": "2025-08-19T17:34:52.035Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "jmovimientos.cs",
+              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\CAD_Inv\\jmovimientos.cs",
+              "RelativeDocumentMoniker": "CAD_Inv\\jmovimientos.cs",
+              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\CAD_Inv\\jmovimientos.cs",
+              "RelativeToolTip": "CAD_Inv\\jmovimientos.cs",
+              "ViewState": "AgIAABUBAAAAAAAAAAA9wBkBAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-19T17:34:52.074Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmMovEq.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmMovEq.cs",
+              "RelativeDocumentMoniker": "frmMovEq.cs",
+              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmMovEq.cs [Dise\u00F1o]",
+              "RelativeToolTip": "frmMovEq.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-19T21:30:09.842Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "jPedidos.cs",
-              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\CAD_Inv\\jPedidos.cs",
-              "RelativeDocumentMoniker": "CAD_Inv\\jPedidos.cs",
-              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\CAD_Inv\\jPedidos.cs",
-              "RelativeToolTip": "CAD_Inv\\jPedidos.cs",
-              "ViewState": "AgIAAGsAAAAAAAAAAAAjwHMAAAAMAAAAAAAAAA==",
+              "Title": "frmMovEq.cs",
+              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmMovEq.cs",
+              "RelativeDocumentMoniker": "frmMovEq.cs",
+              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmMovEq.cs",
+              "RelativeToolTip": "frmMovEq.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAjwHQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-08T21:52:34.344Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AboutBox1.cs",
-              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\AboutBox1.cs",
-              "RelativeDocumentMoniker": "AboutBox1.cs",
-              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\AboutBox1.cs*",
-              "RelativeToolTip": "AboutBox1.cs*",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAnwA4AAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-08T21:52:34.358Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-19T21:30:12.763Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "MDIParent1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\MDIParent1.cs",
+              "RelativeDocumentMoniker": "MDIParent1.cs",
+              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\MDIParent1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "MDIParent1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-19T21:16:27.206Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmAsignacion.cs",
+              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmAsignacion.cs",
+              "RelativeDocumentMoniker": "frmAsignacion.cs",
+              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmAsignacion.cs",
+              "RelativeToolTip": "frmAsignacion.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAowFsAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T13:40:44.985Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "frmAsignacion.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmAsignacion.cs",
+              "RelativeDocumentMoniker": "frmAsignacion.cs",
+              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmAsignacion.cs [Dise\u00F1o]",
+              "RelativeToolTip": "frmAsignacion.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T19:39:26.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "frmPuesto.cs",
+              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmPuesto.cs",
+              "RelativeDocumentMoniker": "frmPuesto.cs",
+              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmPuesto.cs",
+              "RelativeToolTip": "frmPuesto.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAvwGYAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T13:36:01.635Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "ConsultaInv.cs",
               "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\ConsultaInv.cs",
               "RelativeDocumentMoniker": "ConsultaInv.cs",
               "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\ConsultaInv.cs",
               "RelativeToolTip": "ConsultaInv.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAADwv1sAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAL4CAAAAAAAAAAAEwMcCAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-08T22:40:26.484Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "InventarioAsset",
-              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\InventarioAsset.csproj",
-              "RelativeDocumentMoniker": "InventarioAsset.csproj",
-              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\InventarioAsset.csproj",
-              "RelativeToolTip": "InventarioAsset.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-08-08T13:02:15.526Z",
-              "EditorCaption": ""
+              "DocumentIndex": 10,
+              "Title": "frmFiltro.cs",
+              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmFiltro.cs",
+              "RelativeDocumentMoniker": "frmFiltro.cs",
+              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmFiltro.cs",
+              "RelativeToolTip": "frmFiltro.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAACQAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T13:41:11.727Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
+              "Title": "frmPuesto.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmPuesto.cs",
+              "RelativeDocumentMoniker": "frmPuesto.cs",
+              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmPuesto.cs [Design]",
+              "RelativeToolTip": "frmPuesto.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T13:47:31.988Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "ConsultaInv.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\ConsultaInv.cs",
               "RelativeDocumentMoniker": "ConsultaInv.cs",
@@ -146,6 +234,42 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-07T23:22:30.773Z",
               "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Generico.cs",
+              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\CAD_Inv\\Generico.cs",
+              "RelativeDocumentMoniker": "CAD_Inv\\Generico.cs",
+              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\CAD_Inv\\Generico.cs",
+              "RelativeToolTip": "CAD_Inv\\Generico.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAAwFwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T16:04:38.976Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "JEquipos.cs",
+              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\CAD_Inv\\JEquipos.cs",
+              "RelativeDocumentMoniker": "CAD_Inv\\JEquipos.cs",
+              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\CAD_Inv\\JEquipos.cs",
+              "RelativeToolTip": "CAD_Inv\\JEquipos.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAABYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T23:27:55.523Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "frmMovimiento.cs",
+              "DocumentMoniker": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmMovimiento.cs",
+              "RelativeDocumentMoniker": "frmMovimiento.cs",
+              "ToolTip": "C:\\Users\\pablo\\Mis_Programas\\C#\\Inventario2.0\\frmMovimiento.cs",
+              "RelativeToolTip": "frmMovimiento.cs",
+              "ViewState": "AgIAAMUAAAAAAAAAAAAAAMoAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-19T17:49:43.389Z"
             }
           ]
         }

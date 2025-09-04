@@ -54,7 +54,6 @@ namespace InventarioAsset
         {
             try
             {
-
                 dgvAsset.Columns["ID_Inv"].DisplayIndex = 0;
                 dgvAsset.Columns["Puesto"].DisplayIndex = 1;
                 dgvAsset.Columns["Usuario"].DisplayIndex = 2;
@@ -138,6 +137,7 @@ namespace InventarioAsset
                 cmbValor.SelectedItem = cmbValor.Text;
                 // if (getModo() == Constants.Inventario)
                 //{
+                
                 switch (cmbCriterio.SelectedItem.ToString())
                 {
                     case "Revisados":
@@ -210,10 +210,10 @@ namespace InventarioAsset
                     case "Modelo":
                         dgvAsset.DataSource = null;
                         lst = Global.TodosLosAsset.getEquiposxModelo(valor);
-                        var bindingList = new BindingList<EquipoExt>(lst);
-                        var source = new BindingSource(bindingList, null);
-                        //dgvAsset.DataSource = lst
-                        dgvAsset.DataSource = source;
+                        //var bindingList = new BindingList<EquipoExt>(lst);
+                        //var source = new BindingSource(bindingList, null);
+                        dgvAsset.DataSource = lst;
+                        //dgvAsset.DataSource = source;
 
                         break;
 
@@ -266,6 +266,7 @@ namespace InventarioAsset
                     default:
                         break;
                 }
+                AjustarOrdenColumnas();
                 foreach (DataGridViewRow fila in dgvAsset.Rows)
                 {
 
@@ -648,14 +649,21 @@ namespace InventarioAsset
             Console.WriteLine("chech");
             Cursor.Current = Cursors.WaitCursor;
             JSONUsr xusr = new JSONUsr();
-            Ninventario xc = new Ninventario();
+            //Ninventario xc = new Ninventario();
 
 
             JMovEquipo mover = new JMovEquipo(Global.urlBase + "/ajaxEquipos.php");
-            string inv = dgvAsset.CurrentRow.Cells["ID_Inv"].Value.ToString();
+            
+            //string inv = dgvAsset.CurrentRow.Cells["ID_Inv"].Value.ToString();
             List<Ninventario> invs = new List<Ninventario>();
-            xc.id = inv;
-            invs.Add(xc);
+            for (int i = 0; i < (dgvAsset.SelectedRows.Count); i++)
+            {
+                Ninventario xc = new Ninventario();
+                xc.id=dgvAsset.SelectedRows[i].Cells["ID_Inv"].Value.ToString();
+                invs.Add(xc);
+            }
+            //xc.id = inv;
+            //invs.Add(xc);
             
             mover.idAssets = invs.ToArray();
             mover.q = "cas";
@@ -664,7 +672,7 @@ namespace InventarioAsset
             mover.descripcion = "Se mueve al puesto de NO ENCONTRADOS";
             mover.Formulario = "";
             mover.statusDest = "7";
-           // mover.idUsuarioDestino = null;
+            mover.idUsuarioDestino = "";
             mover.statusOrig = "7"; 
             mover.idAdminUser = Global.SeguridadUsr.usuario.ID;
             mover.ID_PUESTO = "ZZZ-0-000";

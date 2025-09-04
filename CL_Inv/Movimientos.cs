@@ -148,12 +148,16 @@ namespace InventarioAsset
 
             public RetCode Baja(Movimientos mv)
             {
-            string baja = Microsoft.VisualBasic.Interaction.InputBox("ingrese el nro de inventario que va a dar de baja");
+                RetCode rc = new RetCode();
+            
+                string baja = Microsoft.VisualBasic.Interaction.InputBox("ingrese el nro de inventario que va a dar de baja");
                 if (baja != mv.Inventario[0].id)
                 {
                     MessageBox.Show("el nro no coincide.\nNo se realiza la baja");
+                    rc.rc = "2";
+                    return rc ;
                 }
-                RetCode rc = new RetCode();
+                //RetCode rc = new RetCode();
                 jMovimientos jmv = new jMovimientos();
                 jmv.idAdminUser = Global.SeguridadUsr.usuario.ID;
                 jmv.statusDest = CTEMovimiento.ST_BAJA;
@@ -172,6 +176,13 @@ namespace InventarioAsset
             {
           
                 RetCode rc = new RetCode();
+                string stat = Microsoft.VisualBasic.Interaction.InputBox("ingrese el nro de inventario que va a donar");
+                if (stat != mv.Inventario[0].id)
+                {
+                    MessageBox.Show("el nro no coincide.\nNo se realiza la donacion");
+                    rc.rc = "2";
+                    return rc;
+                }
                 jMovimientos jmv = new jMovimientos();
                 jmv.idAdminUser = Global.SeguridadUsr.usuario.ID;
                 jmv.statusDest = CTEMovimiento.ST_BAJA_DONACION;
@@ -189,6 +200,13 @@ namespace InventarioAsset
             public RetCode VentaInterna(Movimientos mv)
             {
                 RetCode rc = new RetCode();
+                string baja = Microsoft.VisualBasic.Interaction.InputBox("ingrese el nro de inventario que va vender");
+                if (baja != mv.Inventario[0].id)
+                {
+                    MessageBox.Show("el nro no coincide.\nNo se realiza la venta interna");
+                    rc.rc = "2";
+                    return rc;
+                }
                 jMovimientos jmv = new jMovimientos();
                 jmv.idAdminUser = Global.SeguridadUsr.usuario.ID;
                 jmv.statusDest = CTEMovimiento.ST_BAJA_VENTA_INTERNA;
@@ -383,9 +401,9 @@ namespace InventarioAsset
               
                     jmv.statusOrig = js.Stat2ID(mv.statusOrigen);
                     jmv.q = "cas";
-                    jmv.idUsuarioDestino = mv.UsrDestino;
+                    jmv.idUsuarioDestino = "";
                     //jmv.descripcion = mv.descripcion;
-                    //jmv.ID_PUESTO = mv.Puesto;
+                    jmv.ID_PUESTO = "PAN-0-000";
                     jmv.Formulario = "";
                     //jmv.statusOrig = CTEMovimiento.ST_ASIGNADO;
                     jmv.idAssets = mv.Inventario.ToArray();

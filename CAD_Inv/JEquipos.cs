@@ -1,11 +1,14 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net;
 using System.IO;
-using Newtonsoft.Json;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 
 
@@ -179,7 +182,7 @@ namespace InventarioAsset
         }
 
         //public JSONAllAsset JSONget()
-         public JSONAllAsset JSONget()
+        public JSONAllAsset JSONget()
         {
             WebRequest oRequest = WebRequest.Create(url);
             oRequest.Method = "get";
@@ -190,11 +193,30 @@ namespace InventarioAsset
             Console.WriteLine(((HttpWebResponse)oResponse).StatusDescription);
             using (var oSR = new StreamReader(oResponse.GetResponseStream()))
             {
-                var js =  oSR.ReadToEnd();
+                var js = oSR.ReadToEnd();
                 lvar = JsonConvert.DeserializeObject<JSONAllAsset>(js);
 
             }
             return lvar;
+        }
+
+        public async Task<JSONAllAsset> JSONgetAsync(CancellationToken cancellationToken = default)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await httpClient.GetAsync(url, cancellationToken)
+                    .ConfigureAwait(false);
+
+                response.EnsureSuccessStatusCode();
+                Console.WriteLine(response.StatusCode.ToString());
+
+                var js = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                JSONAllAsset lvar = JsonConvert.DeserializeObject<JSONAllAsset>(js);
+                return lvar;
+            }
         }
         public List<EquipoExt> GetEquipos()
         {
@@ -267,7 +289,7 @@ namespace InventarioAsset
         {
             puesto = puesto.ToUpper();
             List<AssetCompleto> AssCom = new List<AssetCompleto>();
-            AssCom = lvar.coleccion.Where(m => (m.ID_PUESTO != null) && (m.ID_PUESTO.Contains(puesto))).ToList();
+            AssCom = lvar.coleccion.Where(m => (m.ID_PUESTO != null) && (m.ID_PUESTO.Contains(puesto))).OrderByDescending(p => p.ID_ASSET).ToList();
 
             List<EquipoExt> lp = AssCom.ConvertAll(new Converter<AssetCompleto, EquipoExt>(AssetToEq));
 
@@ -278,7 +300,7 @@ namespace InventarioAsset
         {
             tipo = tipo.ToUpper();
             List<AssetCompleto> AssCom = new List<AssetCompleto>();
-            AssCom = lvar.coleccion.Where(m => (m.DESCRIPCION==tipo)).ToList();
+            AssCom = lvar.coleccion.Where(m => (m.DESCRIPCION==tipo)).OrderByDescending(p => p.ID_ASSET).ToList();
 
             List<EquipoExt> lp = AssCom.ConvertAll(new Converter<AssetCompleto, EquipoExt>(AssetToEq));
 
@@ -292,7 +314,7 @@ namespace InventarioAsset
             string usuario = Usuario.ToLower();
 
             List<AssetCompleto> AssCom = new List<AssetCompleto>();
-            AssCom = lvar.coleccion.Where(m => (m.ASSING_USUARIO_ID != null) && ((m.ASSING_USUARIO_ID.Contains(usuario)) || (m.ASSING_USUARIO_ID.Contains(USUARIO)))).ToList();// || (m.ASSING_USUARIO_ID.Contains(Usuario.ToUpper()))).ToList();
+            AssCom = lvar.coleccion.Where(m => (m.ASSING_USUARIO_ID != null) && ((m.ASSING_USUARIO_ID.Contains(usuario)) || (m.ASSING_USUARIO_ID.Contains(USUARIO)))).OrderByDescending(p => p.ID_ASSET).ToList();// || (m.ASSING_USUARIO_ID.Contains(Usuario.ToUpper()))).ToList();
 
             List<EquipoExt> lp = AssCom.ConvertAll(new Converter<AssetCompleto, EquipoExt>(AssetToEq));
 
@@ -352,7 +374,7 @@ namespace InventarioAsset
         public List<EquipoExt> getEquiposxMarca(string Marca)
         {
             List<AssetCompleto> AssCom = new List<AssetCompleto>();
-            AssCom = lvar.coleccion.Where(m => (m.MARCA != null) && (m.MARCA == Marca)).ToList();
+            AssCom = lvar.coleccion.Where(m => (m.MARCA != null) && (m.MARCA == Marca)).OrderByDescending(p => p.ID_ASSET).ToList();
 
             List<EquipoExt> lp = AssCom.ConvertAll(new Converter<AssetCompleto, EquipoExt>(AssetToEq));
 
@@ -363,7 +385,7 @@ namespace InventarioAsset
         public List<EquipoExt> getEquiposxModelo(string Modelo)
         {
             List<AssetCompleto> AssCom = new List<AssetCompleto>();
-            AssCom = lvar.coleccion.Where(m => (m.MODELO != null) && (m.MODELO == Modelo)).ToList();
+            AssCom = lvar.coleccion.Where(m => (m.MODELO != null) && (m.MODELO == Modelo)).OrderByDescending(p => p.ID_ASSET).ToList();
 
             List<EquipoExt> lp = AssCom.ConvertAll(new Converter<AssetCompleto, EquipoExt>(AssetToEq));
 

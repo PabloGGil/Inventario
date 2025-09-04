@@ -82,14 +82,14 @@ namespace InventarioAsset
         static DateTime ultimoRefresco;
         
        
-        public static void RefrescarLocal()
+        public static  void RefrescarLocal()
         {
             DateTime start = DateTime.Now;
 
             if (ultimoRefresco == null || TimeHelper.HasSecondsElapsed(ultimoRefresco, 30)) 
             {
                 Global.TodosLosAsset = new AllAssets(Global.urlBase + "/ajaxEquipos.php?q=a");
-                JSONAllAsset jmaa = Global.TodosLosAsset.JSONget();
+                JSONAllAsset jmaa =  Global.TodosLosAsset.JSONget();
                 ultimoRefresco = DateTime.Now;
             }
             

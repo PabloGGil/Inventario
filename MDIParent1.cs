@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 //using CAD_Inv;
 using SpreadsheetLight;
+using System.Windows;
 
 namespace InventarioAsset
 {
@@ -104,7 +105,7 @@ namespace InventarioAsset
             {
                 Console.WriteLine("cifrado:");
 
-                Global.PathAPP = Path.Combine(Application.StartupPath);
+                //Global.PathAPP = Path.Combine(Application.StartupPath);
 
                 Global.PathRes = Global.PathAPP + @"\Resources\";
                 Global.PathLog = @"\Tmp\Logs\";
@@ -142,17 +143,22 @@ namespace InventarioAsset
                
                 if (!chkConn(Global.urlBase))
                 {
-                    MessageBox.Show("No hay conexion a " + Global.urlBase);
+                    System.Windows.Forms.MessageBox.Show("No hay conexion a " + Global.urlBase);
                     this.Close();
                         return;
                 }
                 //label1.Text = Ambiente;
                 //toolStripStatusLabel1.Text = Global.PathAPP;
 
-     //           Global.xc = new User_Sec(Global.urlBase + "/login.php");
+                //           Global.xc = new User_Sec(Global.urlBase + "/login.php");
                 //Global.SeguridadUsr = Global.xc.JSONpost(Global.m);
-
-
+                /* --------------------------------------------------------
+                * Cifrar
+                * --------------------------------------------------------*/
+                //Seguridad cif = new Seguridad();
+                //string textoplano = "Kattegat3080";
+                //Console.WriteLine(cif.Cifrar(textoplano));
+                //this.Close();
                 if (Properties.Settings.Default.Login == true)
                 {
 
@@ -162,31 +168,26 @@ namespace InventarioAsset
                         frm.ShowDialog();
                         if (!frm.accesoOK)
                         {
-                            MessageBox.Show("Acceso denegado\nEl programa se cerrara");
+                            System.Windows.Forms.MessageBox.Show("Acceso denegado\nEl programa se cerrara");
 
                             this.Close();
 
                         }
                         else
                         {
-                           MessageBox.Show("Ingreso Exitoso" );
+                            System.Windows.Forms.MessageBox.Show("Ingreso Exitoso" );
                         }
                         Global.xc = new User_Sec(Global.urlBase + "/login.php");
                         Global.SeguridadUsr = Global.xc.JSONpost(Global.m);
                     }
                 }
-                else // SI estamos desarrollando tengo que hardcodear el login
+                else // SI estamos desarrollando voy a hardcodear el login
                 {
-                    Seguridad cif = new Seguridad();
+                    Seguridad cifu = new Seguridad();
                     Global.m.user = "nborucki";
-                    string cachus = "d2kcqQfdOl1pfY6Tm8+NVA==";
-                    Global.m.password = cif.Descifrar(cachus);
-                    /* --------------------------------------------------------
-                     * Cifrar
-                     * --------------------------------------------------------*/
-
-                    //string textoplano = "";
-                    //Console.WriteLine(cif.Cifrar(textoplano));
+                    string cachus = "d2kcqQfdOl36uTrpirX24Q==";
+                    Global.m.password = cifu.Descifrar(cachus);
+                    
 
                     Global.xc = new User_Sec(Global.urlBase + "/login.php");
                    Global.SeguridadUsr = Global.xc.JSONpost(Global.m);
@@ -196,7 +197,7 @@ namespace InventarioAsset
                     string k = Global.SeguridadUsr.login.response;
                     if (k.Contains("error"))
                     {
-                        MessageBox.Show("La contraseña es incorrecta\nEl programa se cerrara");
+                        System.Windows.Forms.MessageBox.Show("La contraseña es incorrecta\nEl programa se cerrara");
                         this.Close();
                     }
 
@@ -228,7 +229,7 @@ namespace InventarioAsset
 
                 //Refresco rx = new Refresco();
                 //rx.RefrescarLocal();
-
+                Refresco.RefrescarLocal();
                 toolStripMenuItem1.Text =  Global.SeguridadUsr.usuario.USER_ID;
                             
                 
@@ -498,7 +499,7 @@ namespace InventarioAsset
         private void resetRevisionToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            DialogResult dlgResult = MessageBox.Show("Esta a punto de resetear la información de la revision. Acepta??", "Confirmacion", MessageBoxButtons.YesNo);
+            DialogResult dlgResult = System.Windows.Forms.MessageBox.Show("Esta a punto de resetear la información de la revision. Acepta??", "Confirmacion", MessageBoxButtons.YesNo);
             if (dlgResult == DialogResult.No)
                 return;
             
