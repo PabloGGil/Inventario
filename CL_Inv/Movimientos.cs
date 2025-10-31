@@ -155,10 +155,11 @@ namespace InventarioAsset
                 if (mv.Inventario.Count() > 1)
                 {
                     DialogResult rta= System.Windows.Forms.MessageBox.Show("Esta por dar de Baja " + mv.Inventario.Count() + " equipos\n es correcto?", "Confirmacion de baja",MessageBoxButtons.OKCancel);
-                    if(rta== DialogResult.No)
+                    if(rta== DialogResult.Cancel)
                     {
-                    System.Windows.Forms.MessageBox.Show("Se cancelan las bajas");
-                    return rc;
+                        System.Windows.Forms.MessageBox.Show("Se cancelan las bajas");
+                        rc.rc = "2";
+                        return rc;
                     }
                 }
                 else
@@ -191,12 +192,25 @@ namespace InventarioAsset
             {
           
                 RetCode rc = new RetCode();
-                string stat = Microsoft.VisualBasic.Interaction.InputBox("ingrese el nro de inventario que va a donar");
-                if (stat != mv.Inventario[0].id)
+                if (mv.Inventario.Count() > 1)
                 {
-                    System.Windows.Forms.MessageBox.Show("el nro no coincide.\nNo se realiza la donacion");
-                    rc.rc = "2";
-                    return rc;
+                    DialogResult rta = System.Windows.Forms.MessageBox.Show("Esta por Donar " + mv.Inventario.Count() + " equipos\n es correcto?", "Confirmacion de baja", MessageBoxButtons.OKCancel);
+                    if (rta == DialogResult.Cancel)
+                    {
+                        System.Windows.Forms.MessageBox.Show("Se cancelan las Donaciones");
+                        rc.rc = "2";
+                        return rc;
+                    }
+                }
+                else
+                {
+                    string stat = Microsoft.VisualBasic.Interaction.InputBox("ingrese el nro de inventario que va a donar");
+                    if (stat != mv.Inventario[0].id)
+                    {
+                        System.Windows.Forms.MessageBox.Show("el nro no coincide.\nNo se realiza la donacion");
+                        rc.rc = "2";
+                        return rc;
+                    }
                 }
                 jMovimientos jmv = new jMovimientos();
                 jmv.idAdminUser = Global.SeguridadUsr.usuario.ID;
@@ -215,12 +229,25 @@ namespace InventarioAsset
             public RetCode VentaInterna(Movimientos mv)
             {
                 RetCode rc = new RetCode();
-                string baja = Microsoft.VisualBasic.Interaction.InputBox("ingrese el nro de inventario que va vender");
-                if (baja != mv.Inventario[0].id)
+                if (mv.Inventario.Count() > 1)
                 {
-                    System.Windows.Forms.MessageBox.Show("el nro no coincide.\nNo se realiza la venta interna");
-                    rc.rc = "2";
-                    return rc;
+                    DialogResult rta = System.Windows.Forms.MessageBox.Show("Esta por dar de Baja " + mv.Inventario.Count() + " equipos\n es correcto?", "Confirmacion de baja", MessageBoxButtons.OKCancel);
+                    if (rta == DialogResult.Cancel)
+                    {
+                        System.Windows.Forms.MessageBox.Show("Se cancelan las bajas");
+                        rc.rc = "2";
+                        return rc;
+                    }
+                }
+                else
+                {
+                    string baja = Microsoft.VisualBasic.Interaction.InputBox("ingrese el nro de inventario que va vender");
+                    if (baja != mv.Inventario[0].id)
+                    {
+                        System.Windows.Forms.MessageBox.Show("el nro no coincide.\nNo se realiza la venta interna");
+                        rc.rc = "2";
+                        return rc;
+                    }
                 }
                 jMovimientos jmv = new jMovimientos();
                 jmv.idAdminUser = Global.SeguridadUsr.usuario.ID;
