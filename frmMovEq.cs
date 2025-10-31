@@ -18,6 +18,7 @@ namespace InventarioAsset
     public partial class frmMovEq : Form
     {
         int flagListaCargada = 0;
+       
         public frmMovEq()
         {
             InitializeComponent();
@@ -57,7 +58,8 @@ namespace InventarioAsset
             cmdMover.Enabled = false;
             cmbStatus.Enabled = false;
             cmdImport.Visible = false;
-           if(flagListaCargada==1)
+           
+            if (flagListaCargada==1)
             {
                 cmdMover.Enabled = false;
                 cmbStatus.Enabled = true;
@@ -81,9 +83,10 @@ namespace InventarioAsset
             foreach (string perfil in perfiles)
             {
                 Console.WriteLine(perfil + "\n");
-                if (perfil == "SYS.ADM.USER")
+                if (perfil == "SYS.ADM.USER"||perfil=="PAÑOL" )
                 {
                    cmdImport.Visible = true;
+                  
                     break;
                    
                 }
@@ -736,9 +739,11 @@ namespace InventarioAsset
                     }
                     cargarItems(ls,lvw);
                 }
+              
                 cmdMover.Enabled = true;
                 cmbStatus.Enabled = true;
                 grbCampos.Enabled = false;
+
             }
             catch (Exception ex)
             {

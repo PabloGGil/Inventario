@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
-using Microsoft.VisualBasic;
+using System.Text;
 using System.Windows;
+using System.Windows.Forms;
 ////using CAD_Inv;
 
 ////using CAD_Inv;
@@ -149,14 +150,28 @@ namespace InventarioAsset
             public RetCode Baja(Movimientos mv)
             {
                 RetCode rc = new RetCode();
-            
-                string baja = Microsoft.VisualBasic.Interaction.InputBox("ingrese el nro de inventario que va a dar de baja");
-                if (baja != mv.Inventario[0].id)
+            // como medida de seguridad si se trata de equipos individuales solicita una validacion
+            // Si se trata de mas de un equipo pide confirmacion de la accion 
+                if (mv.Inventario.Count() > 1)
                 {
-                    MessageBox.Show("el nro no coincide.\nNo se realiza la baja");
-                    rc.rc = "2";
-                    return rc ;
+                    DialogResult rta= System.Windows.Forms.MessageBox.Show("Esta por dar de Baja " + mv.Inventario.Count() + " equipos\n es correcto?", "Confirmacion de baja",MessageBoxButtons.OKCancel);
+                    if(rta== DialogResult.No)
+                    {
+                    System.Windows.Forms.MessageBox.Show("Se cancelan las bajas");
+                    return rc;
+                    }
                 }
+                else
+                {
+                    string baja = Microsoft.VisualBasic.Interaction.InputBox("ingrese el nro de inventario que va a dar de baja");
+                    if (baja != mv.Inventario[0].id)
+                    {
+                        System.Windows.Forms.MessageBox.Show("el nro no coincide.\nNo se realiza la baja");
+                        rc.rc = "2";
+                        return rc;
+                    }
+                }
+            
                 //RetCode rc = new RetCode();
                 jMovimientos jmv = new jMovimientos();
                 jmv.idAdminUser = Global.SeguridadUsr.usuario.ID;
@@ -179,7 +194,7 @@ namespace InventarioAsset
                 string stat = Microsoft.VisualBasic.Interaction.InputBox("ingrese el nro de inventario que va a donar");
                 if (stat != mv.Inventario[0].id)
                 {
-                    MessageBox.Show("el nro no coincide.\nNo se realiza la donacion");
+                    System.Windows.Forms.MessageBox.Show("el nro no coincide.\nNo se realiza la donacion");
                     rc.rc = "2";
                     return rc;
                 }
@@ -203,7 +218,7 @@ namespace InventarioAsset
                 string baja = Microsoft.VisualBasic.Interaction.InputBox("ingrese el nro de inventario que va vender");
                 if (baja != mv.Inventario[0].id)
                 {
-                    MessageBox.Show("el nro no coincide.\nNo se realiza la venta interna");
+                    System.Windows.Forms.MessageBox.Show("el nro no coincide.\nNo se realiza la venta interna");
                     rc.rc = "2";
                     return rc;
                 }
