@@ -55,19 +55,7 @@ namespace InventarioAsset
                     opciones.Add(om);
                 }
             }
-            ////opciones.Add(new OpcionesMov() { Indice = "1", valor = "Activo" });
-            //opciones.Add(new OpcionesMov() { Indice = "5", valor = "En Transito" });
-            //opciones.Add(new OpcionesMov() { Indice = "6", valor = "Pañol" });
-            //opciones.Add(new OpcionesMov() { Indice = "7", valor = "Asignado a Usuario" });
-            //opciones.Add(new OpcionesMov() { Indice = "9", valor = "Reparacion interna" });
-            //opciones.Add(new OpcionesMov() { Indice = "19", valor = "En prestamo" });
-            //opciones.Add(new OpcionesMov() { Indice = "10", valor = "Reparacion Externa" });
-            //opciones.Add(new OpcionesMov() { Indice = "15", valor = "Asignado a tecnico" });
-            //opciones.Add(new OpcionesMov() { Indice = "11", valor = "Baja por Donacion" });
-            //opciones.Add(new OpcionesMov() { Indice = "12", valor = "Baja por venta interna" });
-            //opciones.Add(new OpcionesMov() { Indice = "13", valor = "BAJA" });
-            //opciones.Add(new OpcionesMov() { Indice = "99", valor = "Cambio de Titularidad" });
-            //opciones.Add(new OpcionesMov() { Indice = "98", valor = "Cambio de puesto" });
+
         }
 
         public void MostrarOpciones()
@@ -90,14 +78,7 @@ namespace InventarioAsset
             return ret;
         }
 
-        //public string IDToTxt(string id)
-        //{
-        //    string ret;
-        //    foreach (OpcionesMov r in opciones)
-        //        r.
-        //        Console.WriteLine("Indice:{0}  valor:{1}", r.st_destino, r.Desc_movimiento);
-        //    return ret;
-        //}
+ 
         public List<OpcionesMov> getOpcionesMovimiento(string stat_origen)
         {
             List<OpcionesMov> x = new List<OpcionesMov>();
@@ -422,7 +403,13 @@ namespace InventarioAsset
                     jmv.idAssets = mv.Inventario.ToArray();
                     jmv.FechaHasta = DateTime.Now.ToLongDateString();
                     rc = jmv.JSONPost(jmv);
-                }
+                    Equipo ex = new Equipo();
+                    foreach (var item in mv.Inventario)
+                    {
+                        rc = ex.setRevisado(item.ToString());
+                    }
+                   
+            }
 
                 catch (Exception ex)
                 {
@@ -451,7 +438,8 @@ namespace InventarioAsset
                     jmv.idAssets = mv.Inventario.ToArray();
                     jmv.FechaHasta = DateTime.Now.ToLongDateString();
                     rc = jmv.JSONPost(jmv);
-                }
+                   
+            }
                 catch(Exception ex)
                 {
                

@@ -9,6 +9,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 
 
@@ -27,7 +28,7 @@ namespace InventarioAsset
         public string Usuario { get; set; }
         public string Puesto { get; set; }
 
-       // public string UltNota { get; set; }
+        // public string UltNota { get; set; }
         public string Status_date { get; set; }
 
         public string detalle { get; set; }
@@ -62,10 +63,10 @@ namespace InventarioAsset
             url = ur;
         }
 
-        
+
         //public JSONNotas JSONget()
         //{
-           
+
         //    oRequest.Method = "get";
         //    oRequest.ContentType = "application/json, text/plain, */*";
 
@@ -155,7 +156,7 @@ namespace InventarioAsset
             url = ur;
         }
 
-      
+
 
         public List<EquipoExt> getInvxCaractEnPan(string marca, string modelo, string tipo)
         {
@@ -236,15 +237,15 @@ namespace InventarioAsset
         public List<EquipoExt> GetListaEquipos(List<string> inv)
         {
             List<EquipoExt> lp = new List<EquipoExt>();
-            EquipoExt aux=new EquipoExt();
+            EquipoExt aux = new EquipoExt();
             List<AssetCompleto> AssCom = new List<AssetCompleto>();
             foreach (string idequipo in inv)
             {
                 AssCom = lvar.coleccion.Where(m => m.ID_ASSET == idequipo).ToList();
                 //  lp=  AssCom.ConvertAll(new Converter<AssetCompleto, EquipoExt>(AssetToEq)); 
                 if (AssCom.Count > 0)
-                { 
-                    aux = AssetToEq(AssCom[0]); 
+                {
+                    aux = AssetToEq(AssCom[0]);
                 }
                 else
                 {
@@ -266,21 +267,21 @@ namespace InventarioAsset
             EquipoExt lp = new EquipoExt();
             //EquipoExt aux = new EquipoExt();
             List<AssetCompleto> AssCom = new List<AssetCompleto>();
-            
-                AssCom = lvar.coleccion.Where(m => m.ID_ASSET == inv).ToList();
-                //  lp=  AssCom.ConvertAll(new Converter<AssetCompleto, EquipoExt>(AssetToEq)); 
-                if (AssCom.Count > 0)
-                {
-                    lp = AssetToEq(AssCom[0]);
-                }
-                else
-                {
-                    lp.ID_Inv = "0";// idequipo;
-                    lp.DESCRIPCION = "";// "No existe equipo";
-                }
-               
-               //
-            
+
+            AssCom = lvar.coleccion.Where(m => m.ID_ASSET == inv).ToList();
+            //  lp=  AssCom.ConvertAll(new Converter<AssetCompleto, EquipoExt>(AssetToEq)); 
+            if (AssCom.Count > 0)
+            {
+                lp = AssetToEq(AssCom[0]);
+            }
+            else
+            {
+                lp.ID_Inv = "0";// idequipo;
+                lp.DESCRIPCION = "";// "No existe equipo";
+            }
+
+            //
+
             return lp;
 
 
@@ -300,7 +301,7 @@ namespace InventarioAsset
         {
             tipo = tipo.ToUpper();
             List<AssetCompleto> AssCom = new List<AssetCompleto>();
-            AssCom = lvar.coleccion.Where(m => (m.DESCRIPCION==tipo)).OrderByDescending(p => p.ID_ASSET).ToList();
+            AssCom = lvar.coleccion.Where(m => (m.DESCRIPCION == tipo)).OrderByDescending(p => p.ID_ASSET).ToList();
 
             List<EquipoExt> lp = AssCom.ConvertAll(new Converter<AssetCompleto, EquipoExt>(AssetToEq));
 
@@ -325,7 +326,7 @@ namespace InventarioAsset
             List<AssetCompleto> AssCom = new List<AssetCompleto>();
             if (Estado == "BAJA")
             {
-                AssCom = lvar.coleccion.Where(m => (m.STATUS_DET == "DONACION") || (m.STATUS_DET == "VENTA INTERNA") || (m.STATUS_DET == "BAJA")).OrderByDescending(p=>p.ID_ASSET).ToList();
+                AssCom = lvar.coleccion.Where(m => (m.STATUS_DET == "DONACION") || (m.STATUS_DET == "VENTA INTERNA") || (m.STATUS_DET == "BAJA")).OrderByDescending(p => p.ID_ASSET).ToList();
 
             }
             else
@@ -342,7 +343,7 @@ namespace InventarioAsset
         public List<EquipoExt> getEquiposRevisados()
         {
             List<AssetCompleto> AssCom = new List<AssetCompleto>();
-            AssCom = lvar.coleccion.Where(m => (m.REVISADO=="1" || m.ID_PUESTO=="ZZZ-0-000")).OrderByDescending(p=>p.ID_ASSET).ToList();
+            AssCom = lvar.coleccion.Where(m => (m.REVISADO == "1" || m.ID_PUESTO == "ZZZ-0-000")).OrderByDescending(p => p.ID_ASSET).ToList();
             List<EquipoExt> lp = AssCom.ConvertAll(new Converter<AssetCompleto, EquipoExt>(AssetToEq));
             return lp;
         }
@@ -410,6 +411,7 @@ namespace InventarioAsset
             x.detalle = pf.DETALLE;
             x.ID_Estado = pf.STATUS;
             x.REVISADO = pf.REVISADO;
+            x.Fecha_rev = pf.FECHA_REV;
             //new Point(((int)pf.X), ((int)pf.Y));
             return x;
         }
@@ -496,14 +498,14 @@ namespace InventarioAsset
                 return null;
             }
             List<AssetCompleto> AssCom = new List<AssetCompleto>();
-            AssCom = lvar.coleccion.Where(m => (m.MODELO == ext.MODELO) && (m.MARCA == ext.MARCA)  && (m.DESCRIPCION == ext.DESCRIPCION)).ToList();
+            AssCom = lvar.coleccion.Where(m => (m.MODELO == ext.MODELO) && (m.MARCA == ext.MARCA) && (m.DESCRIPCION == ext.DESCRIPCION)).ToList();
             if (!string.IsNullOrEmpty(ext.ID_Estado))
             {
                 AssCom = AssCom.Where(m => (m.STATUS == ext.ID_Estado)).ToList();
             }
             if (!string.IsNullOrEmpty(ext.Puesto))
             {
-                AssCom = AssCom.Where(m => (m.ID_PUESTO==ext.Puesto)).ToList();
+                AssCom = AssCom.Where(m => (m.ID_PUESTO == ext.Puesto)).ToList();
             }
 
 
@@ -520,7 +522,42 @@ namespace InventarioAsset
 
 
     }
+    //public class AssetIndividual
+    //{
 
+    public class AssetIndividual
+    {
+        public string rc { get; set; }
+        public string msg { get; set; }
+        public ColeccionEq[] coleccion { get; set; }
+    }
+
+    public class ColeccionEq
+    {
+        public string ID_ASSET { get; set; }
+        public string TIPO_ASSET { get; set; }
+        public string DESCRIPCION { get; set; }
+        public string ID_DATO { get; set; }
+        public string MODELO { get; set; }
+        public string SERIE { get; set; }
+        public string MARCA { get; set; }
+        public string ID_REMITO { get; set; }
+        public string SYS_USER { get; set; }
+        public string STAMP_DATE { get; set; }
+        public string STATUS { get; set; }
+        public string STATUS_DATE { get; set; }
+        public string STATUS_USER { get; set; }
+        public string STATUS_DET { get; set; }
+        public string ID_PUESTO { get; set; }
+        public string OBS { get; set; }
+        public string OBS_DATE { get; set; }
+        public string DETALLE { get; set; }
+        public string TECNICO { get; set; }
+        public string REVISADO { get; set; }
+        public string FECHA_REV { get; set; }
+    }
+
+    
 
     public class AssetCompleto
     {
@@ -566,6 +603,7 @@ namespace InventarioAsset
         public string ID_Estado { get; set; }
 
         public string REVISADO { get; set; }
+        public string Fecha_rev { get; set; }
         private string _url;
 
         public Equipo()
@@ -609,23 +647,41 @@ namespace InventarioAsset
         }
         public RetCode setRevisado(string nro_inv)
         {
-            jRevisado zx =new jRevisado();
-            zx.q = "modrevision";
-            // SI el valor del inventario es -1 significa que se va a reiniciar el revis
-            if(nro_inv == "-1")
+            jRevisado zx = new jRevisado();
+            RetCode rc = new RetCode();
+            DialogResult result = MessageBox.Show(
+                "¿Estás seguro de la revision?", // Mensaje
+                "Confirmación",                                      // Título
+                MessageBoxButtons.YesNo,                             // Botones
+                MessageBoxIcon.Question                              // Icono
+            );
+
+            if (result == DialogResult.Yes)
             {
-                zx.id_asset = nro_inv;
-                zx.valor = "1";
-                zx.reset = "si";
+                // Código si el usuario hace clic en "Sí"
+               
+               
+                zx.q = "modrevision";
+                // SI el valor del inventario es -1 significa que se va a reiniciar el revis
+                if (nro_inv == "-1")
+                {
+                    zx.id_asset = nro_inv;
+                    zx.valor = "1";
+                    zx.reset = "si";
+                }
+                else
+                {
+                    zx.id_asset = nro_inv;
+                    zx.valor = "1";
+                }
+                 rc = JSONPost(zx);
             }
             else
             {
-                zx.id_asset = nro_inv;
-                zx.valor = "1";
+                 rc = null;
+                MessageBox.Show("Se cancelo la operacion.");
+                
             }
-            //zx.id_asset = nro_inv;
-            //zx.valor = "1";
-            RetCode rc = JSONPost(zx);
             return rc;
         }
 
@@ -638,8 +694,8 @@ namespace InventarioAsset
             zx.nuevoserial = datanew.SERIE;
 
             string url = Global.urlBase + "/ajaxEquipos.php";
-            WebService.PostData<jmodserie>(url,zx);
-            
+            WebService.PostData<jmodserie>(url, zx);
+
         }
 
         public void UnsetRevisado(string nro_inv)
@@ -656,17 +712,17 @@ namespace InventarioAsset
     public class jmodserie
     {
         public string q;
-       
+
         public string id_asset;
         public string nuevoserial;
     }
-    public class jRevisado 
+    public class jRevisado
     {
         public string q;
         public string valor;
         public string id_asset;
         public string reset;
-    
+
     }
 
 
@@ -706,7 +762,7 @@ namespace InventarioAsset
                 lvar = JsonConvert.DeserializeObject<RootPermisoXTipo>(js);
 
             }
-            xvar= lvar.coleccion.ToList();
+            xvar = lvar.coleccion.ToList();
             return lvar.coleccion.ToList();
         }
         public void Imprimir()
@@ -714,14 +770,14 @@ namespace InventarioAsset
 
         }
 
-      
+
         public class Perfiles
         {
             Ninventario[] col1 { get; set; }
         }
     }
 
-    public class EquipoCompras:EquipoExt
+    public class EquipoCompras : EquipoExt
     {
         // dataEq;
         public string OC { get; set; }      //desde joocc
@@ -739,17 +795,17 @@ namespace InventarioAsset
             List<EquipoCompras> resultado = new List<EquipoCompras>();
             //List<Eq_DatosCompra> m = new List<Eq_DatosCompra>();
             //Eq_DatosCompra dc = new Eq_DatosCompra();
-           // EquipoCompras lpm = new EquipoCompras();
-            
+            // EquipoCompras lpm = new EquipoCompras();
+
             foreach (string invaux in invs)
             {
                 DatoCompra dc = new DatoCompra();
                 EquipoCompras lpm = new EquipoCompras();
                 eqx = Global.TodosLosAsset.GetEquipo(invaux);
                 dc = dc.getData(eqx.ID_REMITO);
-                if (dc!=null)
+                if (dc != null)
                 {
-                    
+
                     lpm.OC = dc.OC;
                     lpm.APEM = dc.APEM;
                     lpm.SOLP = dc.SOLP;
@@ -767,19 +823,19 @@ namespace InventarioAsset
                     lpm.FECHA_OC = "";
                     lpm.REMITO = "";
                     lpm.PROVEEDOR = "";
-                }   
-                
-                
+                }
 
 
-                lpm.DESCRIPCION=eqx.DESCRIPCION;
+
+
+                lpm.DESCRIPCION = eqx.DESCRIPCION;
                 lpm.ID_Inv = eqx.ID_Inv;
                 lpm.MARCA = eqx.MARCA;
                 lpm.MODELO = eqx.MODELO;
                 lpm.detalle = eqx.detalle;
                 lpm.SERIE = eqx.SERIE;
                 lpm.Estado = eqx.Estado;
-               
+
                 resultado.Add(lpm);
             }
             return resultado;
@@ -789,6 +845,6 @@ namespace InventarioAsset
 
 
     /* -------------------------------------------------------------- */
-   
+
 
 }

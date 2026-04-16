@@ -384,19 +384,7 @@ namespace InventarioAsset
             frmData frm = new frmData();
             frm.Text = "Movimientos de equipos";
             Movimientos mov = new Movimientos();// (Global.urlBase + "/ajaxEquipos.php?q=assetstatus&d=" + dgvAsset.CurrentRow.Cells[3].Value.ToString());
-
-            //Movimientos mov = new Movimientos(Global.urlBase + "/ajaxEquipos.php?q=assetstatus&d=" + dgvAsset.CurrentRow.Cells[5].Value.ToString());
-            //DataMov dmov = new DataMov();
-            //jMovimientos jmv = new jMovimientos();
-            //dmov = jmv.JSONGet(dgvAsset.CurrentRow.Cells[5].Value.ToString());
-            //mov.ListarMov(dgvAsset.CurrentRow.Cells[5].Value.ToString());
-            //Movimientos mov = new Movimientos();
             string inv = dgvAsset.CurrentRow.Cells["ID_Inv"].Value.ToString();
-            //jMovimientos jm = new jMovimientos();
-            //List<DataMov> dm = new List<DataMov>();
-            //dm=jm.JSONGet(inv);
-
-
             frm.DataSource(mov.ListarMov(inv));
             frm.Show();
         }
@@ -425,10 +413,7 @@ namespace InventarioAsset
             Usuario x = xusr.getDataxUsr(dgvAsset.CurrentRow.Cells["Usuario"].Value.ToString());
             frmData frm = new frmData();
             frm.Text = "Datos de usuario";
-            //As_pue_usrs apu = new As_pue_usrs(Global.urlBase + "/ajaxEquipos.php?q=a&id=" + dgvAsset.CurrentRow.Cells[0].Value.ToString());
-            //JSONapus japu = apu.JSONget();
-            //Empleado u = apu.getEmpleado();
-            //frm.DataSource(apu.getEmpleado());
+
             frm.DataSource(x);
             frm.Show();
         }
@@ -465,31 +450,15 @@ namespace InventarioAsset
                 // SendKeys.Send("{TAB}");
             }
         }
-        //private bool sortAscending = false;
-
-        //private void Sort(string sortBy, ListSortDirection direction)
-        //{
-        //    ICollectionView dataView =
-        //      System.Windows.Data.CollectionViewSource.GetDefaultView(lv.ItemsSource);
-
-        //    dataView.SortDescriptions.Clear();
-        //    SortDescription sd = new SortDescription(sortBy, direction);
-        //    dataView.SortDescriptions.Add(sd);
-        //    dataView.Refresh();
-        //}
+ 
 
         private void cmbValor_SelectedIndexChanged(object sender, EventArgs e)
         {
             string carlo = cmbCriterio.SelectedItem.ToString().ToLower();
             if (carlo == "estado")
             {
-                //string message = "Name: " + cmbValor.Text;
-                //message += Environment.NewLine;
-                //message += "CustomerId: " + cmbValor.SelectedValue;
-                //MessageBox.Show(message);
-                ////cmbValor.SelectedItem = cmbValor.Items[0].ToString();
+
                 IndexDest = cmbValor.SelectedValue.ToString();
-                // IndexDest =cmbValor.Items[0].ToString();
             }
         }
 
@@ -691,11 +660,21 @@ namespace InventarioAsset
         }
         private void chkmetodo(Object sender, EventArgs e)
         {
-            Console.WriteLine("chech");
+            string url;
+            Console.WriteLine("check");
             string inv = dgvAsset.CurrentRow.Cells["ID_Inv"].Value.ToString();
             Equipo ex = new Equipo();
             RetCode rc= ex.setRevisado(inv);
-            // Agrego una nota indicando que de revisó el equipo
+
+            //Verifico que se haya cambiado el estado
+            AssetIndividual t = new AssetIndividual();
+            url = Global.urlBase + "/ajaxEquipos.php?q=a&id="+inv;
+            t = WebService.FetchData<AssetIndividual>(url);
+            if (t.coleccion[0].REVISADO == "1") {
+                dgvAsset.CurrentRow.DefaultCellStyle.BackColor = Color.LightGreen;
+                MessageBox.Show("Operacion exitosa"); 
+            }
+            // Agrego una nota indicando que se revisó el equipo
             DateTime FechaToma = DateTime.Now.Date;
             UpdateNota NotaNueva = new UpdateNota();
             NotaNueva.q = "addNotaAsset";
@@ -703,14 +682,14 @@ namespace InventarioAsset
 
             NotaNueva.idAdminUser = Global.SeguridadUsr.usuario.ID;
             NotaNueva.nota = "Toma de Inventario : " + FechaToma.ToString("yyyy-MM-dd");
-            string url = Global.urlBase + "/ajaxEquipos.php";
+            url = Global.urlBase + "/ajaxEquipos.php";
             WebService.PostData< UpdateNota>(url,NotaNueva);
             //if (rc.rc != "0")
             //{
             //    MessageBox.Show("Error: No se pudo actualizar");
             //}
             //Refresco rx = new Refresco();
-            Refresco.RefrescarLocal();
+            //Refresco.RefrescarLocal();
 
         }
 
@@ -739,12 +718,10 @@ namespace InventarioAsset
 
 
         }
-
         private void importarDesdeExcelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CargarDesdeArchivo();
         }
-
         
     }
 }

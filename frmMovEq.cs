@@ -312,14 +312,8 @@ namespace InventarioAsset
 
         private void cmdMover_Click(object sender, EventArgs e)
         {
-            //Validar que el puesto este bien escrito
-            //if(!ValidarPuesto(txtPuesto.Text))
-            //{
-            //    MessageBox.Show("el puesto " + txtPuesto.Text + " está mal escrito");
-            //    return;
-            //}
             //Validar que el usuario ingresado exista
-            //
+            
             JSONUsr xusr = new JSONUsr();
             Usuario uss = new Usuario();
             uss = xusr.getDataxUsr(txtUsuario.Text);
@@ -357,8 +351,6 @@ namespace InventarioAsset
 
             mv.Solicitante = Global.SeguridadUsr.usuario.ID;
 
-            // xusr = xusr.JSONget();
-            //JUsuariosSys xusr = new JUsuariosSys();
             xusr=xusr.JSONget();
             ////if(indexDest=="5")
             ////{
@@ -404,9 +396,6 @@ namespace InventarioAsset
                         //for (int i = 0; i < lvw.Items.Count; i++)
                         lvw.Items[i].ImageIndex = ImIndex;
                     }
-                   //MessageBox.Show(rx.msg);
-
-                    //}
                     break;
               
                 // Deposito
@@ -417,10 +406,7 @@ namespace InventarioAsset
                         lvw.Items[i].ImageIndex = ImIndex;
 
                     break;
-
-                    // MessageBox.Show(rx.msg);
-
-                    
+                // Asignado    
                 case "7":
                     if (mv.statusOrigen == "7")
                     {
@@ -440,8 +426,6 @@ namespace InventarioAsset
                     
                     for (int i = 0; i < lvw.Items.Count; i++)
                         lvw.Items[i].ImageIndex = ImIndex;
-
-                   // MessageBox.Show(rx.msg);
                     break;
                 // Reparacion interna
                 case "9":

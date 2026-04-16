@@ -156,7 +156,7 @@ namespace InventarioAsset
                 * Cifrar
                 * --------------------------------------------------------*/
                 //Seguridad cif = new Seguridad();
-                //string textoplano = "Kattegat3080";
+                //string textoplano = "";
                 //Console.WriteLine(cif.Cifrar(textoplano));
                 //this.Close();
                 if (Properties.Settings.Default.Login == true)
@@ -185,7 +185,7 @@ namespace InventarioAsset
                 {
                     Seguridad cifu = new Seguridad();
                     Global.m.user = "nborucki";
-                    string cachus = "d2kcqQfdOl36uTrpirX24Q==";
+                    string cachus = "d2kcqQfdOl19YqWMVp/8xA==";
                     Global.m.password = cifu.Descifrar(cachus);
                     
 
@@ -355,7 +355,7 @@ namespace InventarioAsset
 
         private void mapasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Mapa newMDIChild = new Mapa();
+            ListaRevisado newMDIChild = new ListaRevisado();
 
             // Set the Parent Form of the Child window.
             newMDIChild.MdiParent = this;
@@ -558,15 +558,16 @@ namespace InventarioAsset
             saveFileDialog1.ShowDialog();
 
             // If the file name is not an empty string open it for saving.
-            if (saveFileDialog1.FileName != "")
+            if (saveFileDialog1.FileName == "")
             {
-                // Saves the Image via a FileStream created by the OpenFile method.
-                System.IO.FileStream fs =
-                    (System.IO.FileStream)saveFileDialog1.OpenFile();
-
-
-                fs.Close();
+                return;
             }
+            // Saves the Image via a FileStream created by the OpenFile method.
+            System.IO.FileStream fs = (System.IO.FileStream)saveFileDialog1.OpenFile();
+
+
+            fs.Close();
+            
             Cursor.Current = Cursors.WaitCursor;
             dt = converter.ToDataTable(todos);
             SLDocument mydoc = new SLDocument();
@@ -604,7 +605,13 @@ namespace InventarioAsset
             reporteRevisados = Global.TodosLosAsset.getEquiposRevisados();
             RepEstado.exportar(reporteRevisados, "Reporte_Encontrados_" + DateTime.Now.ToString("ddMMyyyy"));
         }
-
+        public void ListaRevisados()
+        {
+            IO RepEstado = new IO();
+            List<EquipoExt> reporteRevisados = new List<EquipoExt>();
+            reporteRevisados = Global.TodosLosAsset.getEquiposRevisados();
+            RepEstado.exportar(reporteRevisados, "Reporte_Encontrados_" + DateTime.Now.ToString("ddMMyyyy"));
+        }
         private void helpMenu_Click(object sender, EventArgs e)
         {
 

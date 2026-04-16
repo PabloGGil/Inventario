@@ -44,6 +44,7 @@ namespace InventarioAsset
             this.etiquetasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bajasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.todosLosEquiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filtrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.movimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tempToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.movimientosManualesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +73,7 @@ namespace InventarioAsset
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.filtrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listadoDeRevisadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -189,7 +190,8 @@ namespace InventarioAsset
             this.etiquetasToolStripMenuItem,
             this.bajasToolStripMenuItem,
             this.todosLosEquiposToolStripMenuItem,
-            this.filtrosToolStripMenuItem});
+            this.filtrosToolStripMenuItem,
+            this.listadoDeRevisadosToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(98, 29);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -198,7 +200,7 @@ namespace InventarioAsset
             // 
             this.etiquetasToolStripMenuItem.Enabled = false;
             this.etiquetasToolStripMenuItem.Name = "etiquetasToolStripMenuItem";
-            this.etiquetasToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.etiquetasToolStripMenuItem.Size = new System.Drawing.Size(277, 34);
             this.etiquetasToolStripMenuItem.Text = "Etiquetas";
             this.etiquetasToolStripMenuItem.Click += new System.EventHandler(this.etiquetasToolStripMenuItem_Click);
             // 
@@ -206,16 +208,23 @@ namespace InventarioAsset
             // 
             this.bajasToolStripMenuItem.Enabled = false;
             this.bajasToolStripMenuItem.Name = "bajasToolStripMenuItem";
-            this.bajasToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.bajasToolStripMenuItem.Size = new System.Drawing.Size(277, 34);
             this.bajasToolStripMenuItem.Text = "Bajas";
             this.bajasToolStripMenuItem.Click += new System.EventHandler(this.bajasToolStripMenuItem_Click);
             // 
             // todosLosEquiposToolStripMenuItem
             // 
             this.todosLosEquiposToolStripMenuItem.Name = "todosLosEquiposToolStripMenuItem";
-            this.todosLosEquiposToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.todosLosEquiposToolStripMenuItem.Size = new System.Drawing.Size(277, 34);
             this.todosLosEquiposToolStripMenuItem.Text = "Todos los equipos";
             this.todosLosEquiposToolStripMenuItem.Click += new System.EventHandler(this.todosLosEquiposToolStripMenuItem_Click);
+            // 
+            // filtrosToolStripMenuItem
+            // 
+            this.filtrosToolStripMenuItem.Name = "filtrosToolStripMenuItem";
+            this.filtrosToolStripMenuItem.Size = new System.Drawing.Size(277, 34);
+            this.filtrosToolStripMenuItem.Text = "Filtros";
+            this.filtrosToolStripMenuItem.Click += new System.EventHandler(this.filtrosToolStripMenuItem_Click);
             // 
             // movimientosToolStripMenuItem
             // 
@@ -418,12 +427,12 @@ namespace InventarioAsset
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(267, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(217, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(220, 34);
             this.aboutToolStripMenuItem.Text = "&Acerca de... ...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -448,12 +457,11 @@ namespace InventarioAsset
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(237, 32);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // filtrosToolStripMenuItem
+            // listadoDeRevisadosToolStripMenuItem
             // 
-            this.filtrosToolStripMenuItem.Name = "filtrosToolStripMenuItem";
-            this.filtrosToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.filtrosToolStripMenuItem.Text = "Filtros";
-            this.filtrosToolStripMenuItem.Click += new System.EventHandler(this.filtrosToolStripMenuItem_Click);
+            this.listadoDeRevisadosToolStripMenuItem.Name = "listadoDeRevisadosToolStripMenuItem";
+            this.listadoDeRevisadosToolStripMenuItem.Size = new System.Drawing.Size(277, 34);
+            this.listadoDeRevisadosToolStripMenuItem.Text = "Reporte chequeados";
             // 
             // MDIParent1
             // 
@@ -524,6 +532,7 @@ namespace InventarioAsset
         private System.Windows.Forms.ToolStripMenuItem modSerieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem todosLosEquiposToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem filtrosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listadoDeRevisadosToolStripMenuItem;
     }
 }
 

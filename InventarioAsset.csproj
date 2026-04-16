@@ -27,7 +27,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>39</ApplicationRevision>
+    <ApplicationRevision>44</ApplicationRevision>
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -171,6 +171,18 @@
     <Compile Include="frmFiltro.Designer.cs">
       <DependentUpon>frmFiltro.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListaRevisado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaRevisado.Designer.cs">
+      <DependentUpon>ListaRevisado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MapaCopia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapaCopia.designer.cs">
+      <DependentUpon>MapaCopia.cs</DependentUpon>
+    </Compile>
     <Compile Include="modSerie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,12 +256,6 @@
     </Compile>
     <Compile Include="logactividad.Designer.cs">
       <DependentUpon>logactividad.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Mapa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Mapa.designer.cs">
-      <DependentUpon>Mapa.cs</DependentUpon>
     </Compile>
     <Compile Include="Ofis.cs" />
     <Compile Include="CL_Inv\Pedidos.cs" />
@@ -341,11 +347,14 @@
     <EmbeddedResource Include="frmBajas.resx">
       <DependentUpon>frmBajas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ListaRevisado.resx">
+      <DependentUpon>ListaRevisado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="logactividad.resx">
       <DependentUpon>logactividad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mapa.resx">
-      <DependentUpon>Mapa.cs</DependentUpon>
+    <EmbeddedResource Include="MapaCopia.resx">
+      <DependentUpon>MapaCopia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAsignacion.resx">
       <DependentUpon>frmAsignacion.cs</DependentUpon>
